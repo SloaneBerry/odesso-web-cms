@@ -1,0 +1,413 @@
+<?php 
+session_start(); 
+include_once 'config/dbconfig.php';
+$check = $_SESSION['login_username'];
+$pageid= $_GET['id'];
+if($check == ''){
+header("Location:index.php");
+}
+ob_start();
+$odesso_app_id= $_GET['id'];
+
+$table3_heading	 = $user->tablehead_ODESSO_APP_MODULE_ITEM();
+$table3			 = $user->table_ODESSO_APP_MODULE_ITEM($odesso_app_id);
+
+$table4_heading	 = $user->tablehead_ODESSO_APP_MODULE_STORE_STORE_ITEM();
+$table4			 = $user->table_ODESSO_APP_MODULE_STORE_STORE_ITEM ($odesso_app_id);
+
+$table7_heading	 = $user->tablehead_ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE();
+$table7			 = $user->table_ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE($odesso_app_id);
+
+$table12_heading = $user->tablehead_ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE();
+$table12		 = $user->table_ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE($odesso_app_id);
+
+$table13_heading = $user->tablehead_ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE();
+$table13		 = $user->table_ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE($odesso_app_id);
+
+$table14_heading = $user->tablehead_ODESSO_APP_MODULE_STORE_ORDER_ADDRESS();
+$table14		 = $user->table_ODESSO_APP_MODULE_STORE_ORDER_ADDRESS($odesso_app_id);
+
+$table15_heading = $user->tablehead_ODESSO_END_USER();
+$table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
+
+
+?>
+
+<?php include 'header.php' ;?>
+<div class="container">
+<div class="row">
+<!----------------------------------- Title div Starts ---------------------------------->
+
+<div class="upload_img">
+	<h2>Reports</h2>
+</div>
+
+<!----------------------------------- Title div Ends	  ---------------------------------->
+
+
+<!-- Table 1-->
+<div class="table-responsive">
+	<h3> Table 1: _PT_ODESSO_APP_MODULE_ITEM  </h3>
+	  <form method="post" action="reports.php?id=<?php echo $odesso_app_id; ?>">
+	<table class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+						
+					foreach($table3_heading as $value)
+					{
+						echo "<th>".$value."</th>";
+					}
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+		$table3= $user->table_ODESSO_APP_MODULE_ITEM($odesso_app_id);
+		
+			foreach($table3 as $key=>$result)
+			{
+				echo "<tr>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_ITEM_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."'></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>	
+	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_app_module_item" method="post" name="export_excel" class="export_form">
+	  <div class="control-group">
+		<div class="controls">
+		  <button type="submit" id="export1" name="export1" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+			
+		</div>
+	  </div>
+	</form>
+</div>
+<!-- End Table 1-->
+<!-- Table 2-->
+<div class="table-responsive">
+	<h3> Table 2: _PT_ODESSO_APP_MODULE_STORE_STORE_ITEM   </h3>
+	<form method="post" action="reports.php?id=<?php echo $odesso_app_id; ?>">
+	<table class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+					foreach($table4_heading as $value)
+					{
+						echo "<th>".$value."</th>";
+					}
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+		$table4= $user->table_ODESSO_APP_MODULE_STORE_STORE_ITEM ($odesso_app_id);
+		
+			foreach($table4 as $key=>$result)
+			{
+				echo "<tr>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_STORE_STORE_ITEM_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' ></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>
+	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_app_module_store_store_item" method="post" name="export_excel" class="export_form">
+	  <div class="control-group">
+		<div class="controls">
+		  <button type="submit" id="export2" name="export2" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+			
+		</div>
+	  </div>
+	</form>
+</div>
+<!-- End Table 2-->
+
+<!-- Table 3-->
+<div class="table-responsive">
+	<h3> Table 3: _PT_ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE</h3>
+	<form method="post" action="reports.php?id=<?php echo $odesso_app_id; ?>">
+	<table class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+					foreach($table12_heading as $value)
+					{
+						echo "<th>".$value."</th>";
+					}
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+		$table12 = $user->table_ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE($odesso_app_id);
+		
+			foreach($table12 as $key=>$result)
+			{
+				echo "<tr>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE_ID']."] value='".$value."' ></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>
+	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_app_module_store_store_item_image" method="post" name="export_excel" class="export_form">
+	  <div class="control-group">
+		<div class="controls">
+		  <button type="submit" id="export3" name="export3" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+			
+		</div>
+	  </div>
+	</form>
+</div>
+<!-- End Table 3-->
+<!-- Table 4-->
+<div class="table-responsive">
+	<h3> Table 4: _PT_ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE</h3>
+	<form method="post" action="reports.php?id=<?php echo $odesso_app_id; ?>">
+	<table class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+					foreach($table13_heading as $value)
+					{
+						echo "<th>".$value."</th>";
+					}
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+			$table13 = $user->table_ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE($odesso_app_id);
+			
+			foreach($table13 as $key=>$result)
+			{
+				echo "<tr>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>
+	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_app_module_store_store_item_attribute" method="post" name="export_excel" class="export_form">
+	  <div class="control-group">
+		<div class="controls">
+		  <button type="submit" id="export4" name="export4" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+			
+		</div>
+	  </div>
+	</form>
+</div>
+<!-- End Table 4-->
+<!-- Table 5-->
+<div class="table-responsive">
+	<h3> Table 5: _PT_ODESSO_APP_MODULE_STORE_ORDER_ADDRESS</h3>
+	<form method="post" action="reports.php?id=<?php echo $odesso_app_id; ?>">
+	<table class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+					foreach($table14_heading as $value)
+					{
+						echo "<th>".$value."</th>";
+					}
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+			$table14 = $user->table_ODESSO_APP_MODULE_STORE_ORDER_ADDRESS($odesso_app_id);
+			
+			foreach($table14 as $key=>$result)
+			{
+				echo "<tr>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_STORE_ORDER_ADDRESS_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_ORDER_ADDRESS_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_ORDER_ADDRESS_ID']."] value='".$value."' ></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>
+	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_app_module_store_order_address" method="post" name="export_excel" class="export_form">
+	  <div class="control-group">
+		<div class="controls">
+		  <button type="submit" id="export5" name="export5" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+			
+		</div>
+	  </div>
+	</form>
+</div>
+<!-- End Table 5-->
+
+<!-- Table 6-->
+<div class="table-responsive">
+	<h3> Table 6:  _PT_ODESSO_END_USER</h3>
+	<form method="post" action="reports.php?id=<?php echo $odesso_app_id; ?>">
+	<table class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+					foreach($table15_heading as $value)
+					{
+						echo "<th>".$value."</th>";
+					}
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+			$table15 = $user->table_ODESSO_END_USER($odesso_app_id);
+			
+			foreach($table15 as $key=>$result)
+			{
+				echo "<tr>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_END_USER_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' ></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>
+	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_end_user" method="post" name="export_excel" class="export_form">
+	  <div class="control-group">
+		<div class="controls">
+		  <button type="submit" id="export6" name="export6" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+			
+		</div>
+	  </div>
+	</form>
+</div>
+<!-- End Table 6-->
+
+<!-- Table 7-->
+<div class="table-responsive">
+	<h3> Table 7: _PT_ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE  </h3>
+	<form method="post" action="reports.php?id=<?php echo $odesso_app_id; ?>">
+	<table class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+					foreach($table7_heading as $value)
+					{
+						echo "<th>".$value."</th>";
+					}
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+		$table7 = $user->table_ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE($odesso_app_id);
+		
+			foreach($table7 as $key=>$result)
+			{
+				echo "<tr>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>
+	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_app_module_user_app_profile_attribute" method="post" name="export_excel" class="export_form">
+	  <div class="control-group">
+		<div class="controls">
+		  <button type="submit" id="export7" name="export7" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+			
+		</div>
+	  </div>
+	</form>
+</div>
+<!-- End Table 7-->
+</div>
+</div>
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.0.min.js"></script>
+<script src="js/datatable.js"></script>
+<script src="js/datatable.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.myTable').DataTable( {
+        // "scrollY": 200,
+        "scrollX": true
+    } );
+} );
+
+
+
+</script>
