@@ -1231,15 +1231,7 @@ $table10_arr[] 	= null;  $table11_arr[] = null;  $table12_arr[]  = null; $table1
 	<li>Then you input the value for the first attribute as the <i>ATTRIBUTE_VALUE</i>, for example SMALL</li>
 	<li>Enter <b>"Attribute"</b> as the <i>ATTRIBUTE_TYPE</i>.</li>
 	<li>Leave the rest blank and hit "Insert" to create a Price-based variant</li></ol>
-	<p>To Add Data Fields:</p><ol>
-	<li>Leave <i>ATTRIBUTE_ORDER, ATTRIBUTE_NAME, and ATTRIBUTE_VALUE</i> blank.</li>
-	<li>For <i>ATTRIBUTE_TYPE</i>, , enter the string "Extra Info". This is necessary so the machine recognizes it's a data collection field.</li>
-	<li>The <i>NAME</i> is the display value of these. For example, the Label or the Checkbox's text.</li>
-	<li>For <i>TYPE</i> you may choose one of the following: <b>Text Paragraph</b>, <b>Text Line</b>, <b>Label</b>, or <b>Checkbox</b>.</li>
-	<li>The <i>EXTRA_INFO</i> can contain whatever information you wish, however it will not display inside of the app.</li>
-	<li>For <i>ACCESS</i>, you can mark each attribute as either <b>PUBLIC</b> or <b>PRIVATE</b>, depending on if you want the SERVICE PROVIDER to be able to see it.</li>
-	<li><i>IS_REQUIRED</i> can be toggled ON with a value of <b>1</b> and toggled OFF with a value of <b>0</b>. If it's on, a user must enter a value in order to complete the workflow.</li>
-	<li><i>IS_ACTIVE</i> controls whether or not it displays in the app. </li></ol></p>
+	</p>
 	<!---TABLE 14: INSERT STARTS --->
 	
 	<form class = "frm_insert" method="post" action="home11.php?id=<?php echo $odesso_app_id; ?>">
@@ -1350,12 +1342,6 @@ $table10_arr[] 	= null;  $table11_arr[] = null;  $table12_arr[]  = null; $table1
 	<p>To add more features to your workflows, you can add Attributes. These can be either price-based variants called "ATTRIBUTES" or they can be information collection-based "EXTRA INFO".<br><ol>
 	<li>Leave the first column, <i>ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE_ID</i> blank.</li>
 	<li>Enter your <i>APP_ID</i> and the <i>STORE_ITEM_ID</i> of the item you wish to add the attribute to.</li></ol>
-	<p>For Price-Based Variants:</p><ol>
-	<li>If this is a price-based attribute, you will need to assign it an order. For example, an e-commerce store selling shirts may have different prices based on SIZE and COLOR. The <i>ATTRIBUTE_ORDER</i> ranks which attribute name you want to display first.</li>
-	<li>Next you input the name of the first attribute as the <i>ATTRIBUTE_NAME</i>, for example SIZE.</li>
-	<li>Then you input the value for the first attribute as the <i>ATTRIBUTE_VALUE</i>, for example SMALL</li>
-	<li>Enter <b>"Attribute"</b> as the <i>ATTRIBUTE_TYPE</i>.</li>
-	<li>Leave the rest blank and hit "Insert" to create a Price-based variant</li></ol>
 	<p>To Add Data Fields:</p><ol>
 	<li>Leave <i>ATTRIBUTE_ORDER, ATTRIBUTE_NAME, and ATTRIBUTE_VALUE</i> blank.</li>
 	<li>For <i>ATTRIBUTE_TYPE</i>, , enter the string "Extra Info". This is necessary so the machine recognizes it's a data collection field.</li>
