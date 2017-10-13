@@ -87,6 +87,21 @@ button.delete_icon {
     padding: 6px;
 	cursor:	pointer;
 }
+.link_btn{
+    background-color: #f26522;
+    color: white;
+    border-radius: 7px;
+    height: 40px;
+    font-size: 15px;
+    cursor : pointer;
+}
+#btnLink {
+    background: #f26522;
+    border: none;
+    color: white;
+    padding: 6px;
+    cursor: pointer;
+}
 .hide_app_feature{
 	display:none;
 }

@@ -41,6 +41,8 @@ $table3			 = $user->table_ODESSO_APP_MODULE_ITEM($odesso_app_id);
 <!----------------------------------- Title div Ends	  ---------------------------------->
 <br>
 <br>
+<h3>Color Picker</h3>
+<a href="https://color.adobe.com/" target="_blank">Click here to open the color picker.</a>
 
 <h3>Sample Icons:</h3>
 <a href="https://www.odesso.com/AppProd/OdessoPlatform/Template/logo_1.png" target="_blank">Logo 1</a> | 
