@@ -46,6 +46,7 @@ button {
 <script type="text/javascript">
 $(window).load(function() {
 	// alert('load');
+    // $(".loader").fadeOut("slow");
     $(".loader").fadeOut("slow");
 });
 </script>
@@ -104,11 +105,17 @@ $APP_TYPE_CLS =  $_SESSION['APP_TYPE_CLS'] ? $_SESSION['APP_TYPE_CLS'] : 'APP_PT
 			<li class = "nav_item nav_li" >
 				<a class = "nav_item" href = "update_branding.php?id=<?php echo $_GET['id']?>" >Update Branding</a>
 			</li>
+			<li class = "nav_item nav_li" >
+				<a class = "nav_features" href = "global_settings.php?id=<?php echo $_GET['id']?>" >Global Settings</a>
+			</li>
 			<li class = "nav_home nav_li" >
 				<a class = "nav_home" href = "home.php?id=<?php echo $_GET['id'];?>" >Create Workflows</a>
 			</li>
 			<li class = "nav_users nav_li" >
 				<a class = "nav_users" href = "manage_users.php?id=<?php echo $_GET['id']?>" >Manage Users</a>
+			</li>
+			<li class = "nav_users nav_li" >
+				<a class = "nav_notifications" href = "notifications.php?id=<?php echo $_GET['id']?>" >Notifications</a>
 			</li>
 			<li class = "nav_structure nav_li" >
 				<a class = "nav_structure" href = "manage_structure.php?id=<?php echo $_GET['id']?>" >Manage Menu</a>
@@ -150,7 +157,9 @@ $(document).ready(function(){
 		
 		$('.nav_report').removeClass('bg_nav');
 		$('.nav_item')	.removeClass('bg_nav');
+		$('.nav_features')	.removeClass('bg_nav');
 		$('.nav_users')	.removeClass('bg_nav');
+		$('.nav_notifications')	.removeClass('bg_nav');
 		$('.nav_structure').removeClass('bg_nav');
 		$('.nav_simu')	.removeClass('bg_nav');
 		
@@ -159,45 +168,79 @@ $(document).ready(function(){
 
 		$('.nav_home')	.removeClass('bg_nav');
 		$('.nav_item')	.removeClass('bg_nav');
+		$('.nav_features')	.removeClass('bg_nav');
 		$('.nav_users')	.removeClass('bg_nav');
+		$('.nav_notifications')	.removeClass('bg_nav');
 		$('.nav_structure').removeClass('bg_nav');
 		$('.nav_simu')	.removeClass('bg_nav');
 		
 	}else if(filename == 'update_branding'){
 		$('.nav_item')	.addClass('bg_nav');
-		
+
+		$('.nav_features')	.removeClass('bg_nav');
 		$('.nav_home')	.removeClass('bg_nav');
 		$('.nav_report').removeClass('bg_nav');
 		$('.nav_users')	.removeClass('bg_nav');
 		$('.nav_structure').removeClass('bg_nav');
+		$('.nav_notifications')	.removeClass('bg_nav');
 		$('.nav_simu')	.removeClass('bg_nav');
 
 	}else if(filename == 'manage_users'){
 		$('.nav_users')	.addClass('bg_nav');
 		
+		$('.nav_features')	.removeClass('bg_nav');
 		$('.nav_home')	.removeClass('bg_nav');
 		$('.nav_report').removeClass('bg_nav');
 		$('.nav_item')	.removeClass('bg_nav');
 		$('.nav_structure').removeClass('bg_nav');
+		$('.nav_notifications')	.removeClass('bg_nav');
 		$('.nav_simu')	.removeClass('bg_nav');
 
 	}else if(filename == 'manage_structure'){
 		$('.nav_structure')	.addClass('bg_nav');
 		
 		$('.nav_home')	.removeClass('bg_nav');
+		$('.nav_features')	.removeClass('bg_nav');
 		$('.nav_report').removeClass('bg_nav');
 		$('.nav_users')	.removeClass('bg_nav');
 		$('.nav_item')  .removeClass('bg_nav');
+		$('.nav_notifications')	.removeClass('bg_nav');
 		$('.nav_simu')	.removeClass('bg_nav');
 
 	}else if(filename == 'simulators'){
 		$('.nav_simu')	.addClass('bg_nav');
 		
 		$('.nav_item')	.removeClass('bg_nav');
+		$('.nav_features')	.removeClass('bg_nav');
 		$('.nav_home')	.removeClass('bg_nav');
 		$('.nav_report').removeClass('bg_nav');
 		$('.nav_users')	.removeClass('bg_nav');
+		$('.nav_notifications')	.removeClass('bg_nav');
 		$('.nav_item').removeClass('bg_nav');
+	
+	}else if(filename == 'global_settings'){
+		$('.nav_features')	.addClass('bg_nav');
+		
+		$('.nav_home')	.removeClass('bg_nav');
+		$('.nav_features')	.removeClass('bg_nav');
+		$('.nav_report').removeClass('bg_nav');
+		$('.nav_users')	.removeClass('bg_nav');
+		$('.nav_item')  .removeClass('bg_nav');
+		$('.nav_structure').removeClass('bg_nav');
+		$('.nav_notifications')	.removeClass('bg_nav');
+		$('.nav_simu')	.removeClass('bg_nav');
+
+	}else if(filename == 'notifications'){
+		$('.nav_notifications')	.addClass('bg_nav');
+		
+		$('.nav_home')	.removeClass('bg_nav');
+		$('.nav_features')	.removeClass('bg_nav');
+		$('.nav_report').removeClass('bg_nav');
+		$('.nav_users')	.removeClass('bg_nav');
+		$('.nav_item')  .removeClass('bg_nav');
+		$('.nav_structure').removeClass('bg_nav');
+		$('.nav_features')	.removeClass('bg_nav');
+		$('.nav_simu')	.removeClass('bg_nav');
 
 	}
 });

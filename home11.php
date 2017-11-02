@@ -616,7 +616,7 @@ if(isset($_POST['edit15'])){
 		$value3 = $_POST[$value];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_FEATURE_ORDER($value,$updated_value,$key);
+				$user->update_ODESSO_APP_ADDRESS($value,$updated_value,$key);
 		}
 	}
 }
@@ -627,7 +627,7 @@ if(isset($_POST['edit16'])){
 		$value3 = $_POST[$value];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_ADDRESS($value,$updated_value,$key);
+				$user->update_ODESSO_APP_FEATURE_ORDER($value,$updated_value,$key);
 		}
 	}
 }
@@ -7311,22 +7311,24 @@ function upload(){
 				data: form_data,  // Setting the data attribute of ajax with file_data
 				type: 'post',
 				success: function(response){
-					var data = JSON.parse(response);
-					if(data.result != '0'){
-						// alert(data.image_with_path);
-						$('.error_msg').css('display','none');
-						$('.success_msg').css('display','block');
+					if(response){
+						var data = JSON.parse(response);
+						if(data.result != '0'){
+							// alert(data.image_with_path);
+							$('.error_msg').css('display','none');
+							$('.success_msg').css('display','block');
+							
+							$('.success_msg').html('File successfully uploaded, here is a link to your file. Please copy and paste it in a safe place since you will need it later:<?php echo BASE_URL.'/uploads';?>/' + user_name + '/'+data.image_with_path);
 						
-						$('.success_msg').html('File successfully uploaded, here is a link to your file. Please copy and paste it in a safe place since you will need it later:<?php echo BASE_URL;?>/' + user_name + '/'+data.image_with_path);
-					
-					
-					}else{
-									
-						$('.error_msg').css('display','none');
-						$('.success_msg').css('display','block');
 						
-						$('.error_msg').html('Image not Uploaded! Please Try Again.');
-					} 
+						}else{
+										
+							$('.error_msg').css('display','none');
+							$('.success_msg').css('display','block');
+							
+							$('.error_msg').html('Image not Uploaded! Please Try Again.');
+						} 
+					}
 				}
 			});
 		}

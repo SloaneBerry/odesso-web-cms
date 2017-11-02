@@ -441,6 +441,231 @@ class USER
            echo $e->getMessage();
        }
    }
+
+   public function tablehead_ODESSO_APP_FEATURE_GLOBAL_WORKFLOW_SETTINGS($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          // $stmt->execute();
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		 
+		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED','MAX_IMAGE_NUMBER','IS_SP_ALLOWED_TO_SELECT_ITEMS','IS_USER_DETAIL_CHAT_ON');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ".$this->table_prefix."_ODESSO_APP_FEATURE
+    public function table_ODESSO_APP_FEATURE_GLOBAL_WORKFLOW_SETTINGS($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_FEATURE_ID, ODESSO_APP_ID, IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED, MAX_IMAGE_NUMBER, 
+									  IS_SP_ALLOWED_TO_SELECT_ITEMS, IS_USER_DETAIL_CHAT_ON FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+   public function tablehead_ODESSO_APP_FEATURE_ECOMMERCE($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          // $stmt->execute();
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		 
+		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','TRANSACTION_INCLUDED','IS_CUSTOMER_UPDATE_PAYMENT_ON','COUPON_INCLUDED','IS_STORE_CART_NEEDED');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ".$this->table_prefix."_ODESSO_APP_FEATURE
+    public function table_ODESSO_APP_FEATURE_ECOMMERCE($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT 'ODESSO_APP_FEATURE_ID', ODESSO_APP_FEATURE_ID, ODESSO_APP_ID, TRANSACTION_INCLUDED,IS_CUSTOMER_UPDATE_PAYMENT_ON,IS_CUSTOMER_UPDATE_PAYMENT_ON,COUPON_INCLUDED,IS_STORE_CART_NEEDED FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+   public function tablehead_ODESSO_APP_FEATURE_SP_CANCELLATION_SETTINGS($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          // $stmt->execute();
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		 
+		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_SERVICE_PROVIDER_CANCELLATION_ON_SUBMITTED','IS_SERVICE_PROVIDER_CANCELLATION_ON_IN_PROGRESS','IS_SERVICE_PROVIDER_CANCELLATION_ON_PENDING_FOR_PRICE','IS_SERVICE_PROVIDER_CANCELLATION_ON_FINALIZING');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ".$this->table_prefix."_ODESSO_APP_FEATURE
+    public function table_ODESSO_APP_FEATURE_SP_CANCELLATION_SETTINGS($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_FEATURE_ID,ODESSO_APP_ID,IS_SERVICE_PROVIDER_CANCELLATION_ON_SUBMITTED,IS_SERVICE_PROVIDER_CANCELLATION_ON_IN_PROGRESS,IS_SERVICE_PROVIDER_CANCELLATION_ON_PENDING_FOR_PRICE,IS_SERVICE_PROVIDER_CANCELLATION_ON_FINALIZING FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+   public function tablehead_ODESSO_APP_FEATURE_ORDER_SCREEN_UX($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          // $stmt->execute();
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		 
+		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_ORDER_PRICE_TABLE_ON','IS_ORDER_ITEM_TABLE_ON','IS_ORDER_CUSTOMER_DESCRIPTION_ON','IS_STORE_ITEM_TABLE_PRICE_ON_CUSTOMER','IS_STORE_ITEM__TABLE_QUANTITY_ON_CUSTOMER','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_CUSTOMER','IS_STORE_ITEM_TABLE_PRICE_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_QUANTITY_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_PRICE_ON_MERCHANT','IS_STORE_ITEM_TABLE_QUANTITY_ON_MERCHANT','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_MERCHANT');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ".$this->table_prefix."_ODESSO_APP_FEATURE
+    public function table_ODESSO_APP_FEATURE_ORDER_SCREEN_UX($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT ODESSO_APP_FEATURE_ID, ODESSO_APP_ID, IS_ORDER_PRICE_TABLE_ON, IS_ORDER_ITEM_TABLE_ON, IS_ORDER_CUSTOMER_DESCRIPTION_ON, IS_STORE_ITEM_TABLE_PRICE_ON_CUSTOMER, IS_STORE_ITEM_TABLE_QUANTITY_ON_CUSTOMER, IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_CUSTOMER, IS_STORE_ITEM_TABLE_PRICE_ON_SERVICE_PROVIDER, IS_STORE_ITEM_TABLE_QUANTITY_ON_SERVICE_PROVIDER, IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_SERVICE_PROVIDER, IS_STORE_ITEM_TABLE_PRICE_ON_MERCHANT, IS_STORE_ITEM_TABLE_QUANTITY_ON_MERCHANT, IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_MERCHANT FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+   public function tablehead_ODESSO_APP_FEATURE_PROFILE_INFORMATION_PRIVACY($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          // $stmt->execute();
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		 
+		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_CUSTOMER_PHONE_PRIVATE','IS_CUSTOMER_EMAIL_PRIVATE','IS_SERVICE_PROVIDER_PHONE_PRIVATE','IS_SERVICE_PROVIDER_EMAIL_PRIVATE','IS_MERCHANT_PHONE_PRIVATE','IS_MERCHANT_EMAIL_PRIVATE');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ".$this->table_prefix."_ODESSO_APP_FEATURE
+    public function table_ODESSO_APP_FEATURE_PROFILE_INFORMATION_PRIVACY($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_FEATURE_ID, ODESSO_APP_ID, IS_CUSTOMER_PHONE_PRIVATE, IS_CUSTOMER_EMAIL_PRIVATE, IS_SERVICE_PROVIDER_PHONE_PRIVATE, IS_SERVICE_PROVIDER_EMAIL_PRIVATE, IS_MERCHANT_PHONE_PRIVATE, IS_MERCHANT_EMAIL_PRIVATE FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+   public function tablehead_ODESSO_APP_FEATURE_ADVANCED_BUSINESS_RULES($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          // $stmt->execute();
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		 
+		 $row = array('ODESSO_APP_ID','IS_JOB_ON','ITEM_IDS');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ".$this->table_prefix."_ODESSO_APP_FEATURE
+    public function table_ODESSO_APP_FEATURE_ADVANCED_BUSINESS_RULES($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID, IS_JOB_ON, ITEM_IDS FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+
     public function tablehead_ODESSO_APP_FEATURE($odesso_app_id)
     {
 		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
@@ -607,7 +832,7 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-			// echo "UPDATE `".$tablename."` SET `".$value."`= '".$updated_value."' WHERE ODESSO_APP_FEATURE_ID = '".$key."' ";
+			
           $stmt = $this->db->prepare("UPDATE `".$tablename."` SET `".$value."`= '".$updated_value."' WHERE ODESSO_APP_FEATURE_ID = '".$key."' ");
 		  $stmt->execute();
 		  return true;
@@ -1293,6 +1518,179 @@ class USER
            echo $e->getMessage();
        }
    }
+
+   // Function for fetching only IMAGES on the Odesso_App table
+   public function tablehead_ODESSO_APP_BRANDING_IMAGES($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
+       try
+       {
+		 $row = array('ODESSO_APP_ID', 'APP_NAME', 'BUSINESS_LOGO_LINK', 'APP_ICON_LINK','BACKGROUND_IMAGE_LINK');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ODESSO_APP but only BRANDING IMAGES
+    public function table_ODESSO_APP_BRANDING_IMAGES($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID,APP_NAME,BUSINESS_LOGO_LINK,APP_ICON_LINK,BACKGROUND_IMAGE_LINK FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+		  
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+   // Function for fetching only COLORS on the Odesso_App table
+   public function tablehead_ODESSO_APP_BRANDING_COLORS($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
+       try
+       {
+		 $row = array('ODESSO_APP_ID', 'MAIN_COLOR_CODE', 'THEME_COLOR_CODE', 'TITLE_TEXT_COLOR', 'CHECK_BOX_COLOR_CODE', 'NAVIGATION_BAR_COLOR_CODE', 'NAVIGATION_BAR_TRANSPARENCY_ALPHA');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ODESSO_APP but only COLORS
+    public function table_ODESSO_APP_BRANDING_COLORS($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID,MAIN_COLOR_CODE,THEME_COLOR_CODE,TITLE_TEXT_COLOR,CHECK_BOX_COLOR_CODE,NAVIGATION_BAR_COLOR_CODE,NAVIGATION_BAR_TRANSPARENCY_ALPHA FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+   // Function for fetching only COLORS on the Odesso_App table
+   public function tablehead_ODESSO_APP_BRANDING_UX1($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
+       try
+       {
+		 $row = array('ODESSO_APP_ID', 'NAVIGATION_BAR_BACK_IMAGE_LINK', 'NAVIGATION_BAR_NEXT_IMAGE_LINK', 'NAVIGATION_BAR_IMAGE_MENU_IMAGE_LINK', 'LOCATE_IMAGE_LINK', 'EDIT_IMAGE_LINK', 'NAVIGATION_BAR_ADD_IMAGE_LINK', 'NAVIGATION_BAR_CART_IMAGE_LINK', 'SPINNER_IMAGE_LINK','NAVIGATION_BAR_REFRESH_IMAGE_LINK');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ODESSO_APP but only COLORS
+    public function table_ODESSO_APP_BRANDING_UX1($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID,NAVIGATION_BAR_BACK_IMAGE_LINK,NAVIGATION_BAR_NEXT_IMAGE_LINK,NAVIGATION_BAR_MENU_IMAGE_LINK,LOCATE_IMAGE_LINK,EDIT_IMAGE_LINK,NAVIGATION_BAR_ADD_IMAGE_LINK,NAVIGATION_BAR_CART_IMAGE_LINK,SPINNER_IMAGE_LINK,NAVIGATION_BAR_REFRESH_IMAGE_LINK FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+   // Function for fetching CANCELLATION TIME from the Odesso_App table
+   public function tablehead_ODESSO_APP_SYSTEM_CANCELLATION_TIME($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
+       try
+       {
+		 $row = array('ODESSO_APP_ID', 'SYSTEM_CANCEL_ORDER_TIME');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching CANCELLATION TIME from ODESSO_APP table
+    public function table_ODESSO_APP_SYSTEM_CANCELLATION_TIME($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID,SYSTEM_CANCEL_ORDER_TIME FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+   // Function for fetching only COLORS on the Odesso_App table
+   public function tablehead_ODESSO_APP_BRANDING_UX2($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_user') : $this->table_prefix.'_odesso_app_module_user';
+       try
+       {
+		 $row = array('ODESSO_APP_ID', 'ICON_PALETTE_EMAIL_LINK', 'ICON_PALLETE_PASSWORD_LINK');
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+  
+   // Function for fetching  table ODESSO_APP but only COLORS
+    public function table_ODESSO_APP_BRANDING_UX2($odesso_app_id)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_user') : $this->table_prefix.'_odesso_app_module_user';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID,ICON_PALETTE_EMAIL_LINK,ICON_PALETTE_PASSWORD_LINK FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+
+
 // Function for fetching  table heading of ".$this->table_prefix."_ODESSO_APP_MODULE_WEB
     public function tablehead_ODESSO_APP_MODULE_WEB()
     {
@@ -1899,6 +2297,7 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature_order') : $this->table_prefix.'_odesso_app_feature_order';
        try
        {
+		   // echo 'UPDATE '.$tablename.' SET '.$value.' = "'.$updated_value.'" WHERE `ODESSO_APP_FEATURE_ORDER_ID`= "'.$key.'"';
           $stmt = $this->db->prepare('UPDATE '.$tablename.' SET '.$value.' = "'.$updated_value.'" WHERE `ODESSO_APP_FEATURE_ORDER_ID`= "'.$key.'"');
 		  $stmt->execute();
 		  return true;
@@ -1931,6 +2330,41 @@ class USER
         {
             echo $e->getMessage();
         }
+	}
+
+	public function tablehead_ODESSO_APP_FEATURE_ORDER_HISTORY_DISPLAY(){
+		
+		$this->table_prefix = $_SESSION['APP_TYPE']   ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature_order') : $this->table_prefix.'_odesso_app_feature_order';
+       
+	    try
+        {
+		 $row = array('ODESSO_APP_FEATURE_ORDER_ID','ORDER_HISTORY_DISPLAY_MAIN', 'ORDER_HISTORY_DISPLAY_LEFT_TOP', 'ORDER_HISTORY_DISPLAY_RIGHT_TOP','ORDER_HISTORY_DISPLAY_LEFT_BOTTOM','ORDER_HISTORY_DISPLAY_RIGHT_BOTTOM');
+		  return $row;
+	   }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+	}
+	
+	// Function for fetching  table heading of '_ODESSO_APP_FEATURE_ORDER' table...
+	public function table_ODESSO_APP_FEATURE_ORDER_HISTORY_DISPLAY($odesso_app_id){
+		
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature_order') : $this->table_prefix.'_odesso_app_feature_order';
+       try
+       {
+          $stmt = $this->db->prepare("SELECT ODESSO_APP_FEATURE_ORDER_ID, ORDER_HISTORY_DISPLAY_MAIN, ORDER_HISTORY_DISPLAY_LEFT_TOP, ORDER_HISTORY_DISPLAY_RIGHT_TOP, ORDER_HISTORY_DISPLAY_LEFT_BOTTOM, ORDER_HISTORY_DISPLAY_RIGHT_BOTTOM FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+		catch(PDOException $e)
+		{
+           echo $e->getMessage();
+		}
+		
 	}
 	
 	// Function for fetching  table heading of '_ODESSO_APP_MODULE_ITEM_ACTIVITY_AUDIT table...
@@ -2165,10 +2599,10 @@ class USER
 	    try
         {
            	$value=implode('","',$value3);
-		
 			$stmt = $this->db->prepare('INSERT INTO '.$tablename.'
                                                        VALUES("'.$value.'")');
-         
+			$stmt->execute(); 											   
+			
 			return true;
 	    }
         catch(PDOException $e)
@@ -4460,8 +4894,8 @@ class USER
 	public function all_admin_cols(){
 		
 		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
-		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_store_item_attribute')
-		: $this->table_prefix.'_odesso_app_module_store_store_item_attribute';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature_order')
+		: $this->table_prefix.'_odesso_app_feature_order';
 		try
         {
 		$stmt = $this->db->prepare("SELECT `COLUMN_NAME`,DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`= '".$tablename."' ");
@@ -4477,11 +4911,12 @@ class USER
 	}
 	public function all_records(){
 		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
-		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_store_item_location_schedule')
-		: $this->table_prefix.'_odesso_app_module_store_store_item_location_schedule';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature')
+		: $this->table_prefix.'_odesso_app_feature';
+		
 		try
         {
-		$stmt = $this->db->prepare("SELECT * FROM admin ");
+		$stmt = $this->db->prepare("SELECT * FROM ".$tablename." ");
 		$stmt->execute();
 		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;

@@ -17,15 +17,15 @@ $table_data2 	 = $user->all_records2();
 echo "</pre>";
  */
 
-  echo "<pre>";
+ echo "<pre>";
 		print_r('colums are: ');
 		print_r($table_cols);
-echo "</pre>"; 
-/*  echo "<pre>";
+echo "</pre>";  
+ echo "<pre>";
 		print_r('data are: ');
 		echo "<br>";
 		print_r($table_data);
-echo "</pre>";    */
+echo "</pre>";   
 /* echo "<pre>";
 		print_r('data of location&schedule table');
 		echo "<br>";

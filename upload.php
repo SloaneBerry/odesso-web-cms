@@ -14,9 +14,9 @@
 	
 	
 		$source_file 	= $_FILES['file']['tmp_name'];
-		$dst_dir   		= __DIR__ .'/'.$user_name ;
+		$dst_dir   		= __DIR__ .'/uploads/'.$user_name ;
 		
-		$dest_file   	= __DIR__ .'/'.$user_name."/".$img.'.'.$extension;
+		$dest_file   	= __DIR__ .'/uploads/'.$user_name."/".$img.'.'.$extension;
 		
 		if (!is_dir($dst_dir)){
 			
@@ -78,5 +78,6 @@
 		} 
 
 	}
+
 
 ?>

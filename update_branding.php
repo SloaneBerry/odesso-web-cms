@@ -12,6 +12,18 @@ $odesso_app_id = $_GET['id'];
 $table_heading 	 = $user->tablehead_ODESSO_APP();
 $table			 = $user->table_ODESSO_APP($odesso_app_id);
 
+$tableA_heading  = $user->tablehead_ODESSO_APP_BRANDING_IMAGES();
+$tableA			 = $user->table_ODESSO_APP_BRANDING_IMAGES($odesso_app_id);
+
+$tableB_heading  = $user->tablehead_ODESSO_APP_BRANDING_COLORS();
+$tableB			 = $user->table_ODESSO_APP_BRANDING_COLORS($odesso_app_id);
+
+$tableC_heading  = $user->tablehead_ODESSO_APP_BRANDING_UX1();
+$tableC			 = $user->table_ODESSO_APP_BRANDING_UX1($odesso_app_id);
+
+$tableD_heading  = $user->tablehead_ODESSO_APP_BRANDING_UX2();
+$tableD			 = $user->table_ODESSO_APP_BRANDING_UX2($odesso_app_id);
+
 $table1_heading  = $user->tablehead_ODESSO_APP_FEATURE($odesso_app_id);
 $table1			 = $user->table_ODESSO_APP_FEATURE($odesso_app_id);
 
@@ -63,6 +75,47 @@ if(isset($_POST['edit1'])){
 		foreach($value3 as $key=>$updated_value)
 		{
 				$user->update_ODESSO_APP($value,$updated_value,$key);
+		}
+	}
+}
+if(isset($_POST['editA'])){
+	foreach($tableA_heading as $value)
+	{
+		$value3 = $_POST[$value];
+		foreach($value3 as $key=>$updated_value)
+		{
+				$user->update_ODESSO_APP($value,$updated_value,$key);
+		}
+	}
+	// echo "<meta http-equiv='refresh' content='0'>";
+}
+if(isset($_POST['editB'])){
+	foreach($tableB_heading as $value)
+	{
+		$value3 = $_POST[$value];
+		foreach($value3 as $key=>$updated_value)
+		{
+				$user->update_ODESSO_APP($value,$updated_value,$key);
+		}
+	}
+}
+if(isset($_POST['editC'])){
+	foreach($tableC_heading as $value)
+	{
+		$value3 = $_POST[$value];
+		foreach($value3 as $key=>$updated_value)
+		{
+				$user->update_ODESSO_APP($value,$updated_value,$key);
+		}
+	}
+}
+if(isset($_POST['editD'])){
+	foreach($tableD_heading as $value)
+	{
+		$value3 = $_POST[$value];
+		foreach($value3 as $key=>$updated_value)
+		{
+				$user->update_ODESSO_APP_MODULE_USER($value,$updated_value,$key);
 		}
 	}
 }
@@ -199,7 +252,9 @@ if(isset($_POST['edit14'])){
 }
 
 
-$table1_arr[] 	= null;  $table2_arr[] 	= null;  $table3_arr[] = null; 
+$table1_arr[] 	= null;  $table2_arr[] 	= null;  $table3_arr[] = null;
+$tableA_arr[]	= null;	 $tableB_arr[]	= null;	 $tableC_arr[] = null;
+$tableD_arr[]	= null; 
 ?>
 
 <?php include 'header.php';?>
@@ -233,15 +288,15 @@ $table1_arr[] 	= null;  $table2_arr[] 	= null;  $table3_arr[] = null;
 	<li><span class="li-content">Once you're done, press "Update" to update your app.</span></li> </ol></p>
 
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
-	<table id = "table1" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+	<table id = "tableA" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
 						echo "<th>Edit</th>";
 						
-					foreach($table_heading as $value)
+					foreach($tableA_heading as $value)
 					{
-						$table1_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						$tableA_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 							
 						echo "<th>".$value."</th>";
 					}
@@ -251,12 +306,12 @@ $table1_arr[] 	= null;  $table2_arr[] 	= null;  $table3_arr[] = null;
 		</thead>
 	<tbody>
 		<?php
-			$table= $user->table_ODESSO_APP ($odesso_app_id);
+			$tableA = $user->table_ODESSO_APP_BRANDING_IMAGES ($odesso_app_id);
 			
-			foreach($table as $key=>$result)
+			foreach($tableA as $key=>$result)
 			{
 				echo "<tr>";
-					echo "<td><button type='submit' name='edit1'>Update</button></td>";
+					echo "<td><button type='submit' name='editA'>Update</button></td>";
 					foreach ($result as $key1=>$value)
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_ID')
@@ -274,7 +329,169 @@ $table1_arr[] 	= null;  $table2_arr[] 	= null;  $table3_arr[] = null;
 	</tbody>
 	</table>
 	</form>
-	
+</div> 
+
+
+<div class="table-responsive ">
+	<h3>Table 2: Colors</h3><br>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>To start, fill out the User Experience table below.<ol><li>First, name your app in column 3 <i>APP_NAME</i>.
+	<li><span class="li-content">Copy and paste your logo into the fields <i>BUSINESS_LOGO_LINK</i> and <i>APP_ICON_LINK</i> to make it appear on your splash page and login page respectively.</span></li>
+	<li><span class="li-content">Customize your app by changing the <i>BACKGROUND_IMAGE_LINK</i> to a background image (make sure it's <i>750x1334 px</i> or <i>1080x1920 px</i>).</span></li>
+	<li><span class="li-content">To change colors inside of the app, you can type in different HEX codes to <i>THEME_COLOR_CODE</i> (buttons, top bar, important words), <i>MAIN_COLOR_CODE</i> (the majority of text), and the <i>NAVIGATION_BAR_COLOR_CODE</i>.</span></li>
+	<li><span class="li-content">You can change the opacity of the Navigation Bar color by adding a decimal between 0 - 1 to <i>NAVIGATION_BAR_TRANSPARENCY_ALPHA</i>. If you don't want the navigation bar there at all, just set the transparency to 0.</span></li>
+	<li><span class="li-content">Most of the icons that display inside of the app are also controlled in this table. You can add custom icons by adding a link to a new custom icon image in the different fields. For example, you may add a different "back" arrow key to the <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i>.</span></li>
+	<li><span class="li-content">Once you're done, press "Update" to update your app.</span></li> </ol></p>
+
+	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
+	<table id = "tableB" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+						echo "<th>Edit</th>";
+						
+					foreach($tableB_heading as $value)
+					{
+						$tableB_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+							
+						echo "<th>".$value."</th>";
+					}
+					
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+			$tableB = $user->table_ODESSO_APP_BRANDING_COLORS($odesso_app_id);
+			
+			foreach($tableB as $key=>$result)
+			{
+				echo "<tr>";
+					echo "<td><button type='submit' name='editB'>Update</button></td>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>
+</div> 
+
+<div class="table-responsive ">
+	<h3>Table 3: UX Part 1</h3><br>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>To start, fill out the User Experience table below.<ol><li>First, name your app in column 3 <i>APP_NAME</i>.
+	<li><span class="li-content">Copy and paste your logo into the fields <i>BUSINESS_LOGO_LINK</i> and <i>APP_ICON_LINK</i> to make it appear on your splash page and login page respectively.</span></li>
+	<li><span class="li-content">Customize your app by changing the <i>BACKGROUND_IMAGE_LINK</i> to a background image (make sure it's <i>750x1334 px</i> or <i>1080x1920 px</i>).</span></li>
+	<li><span class="li-content">To change colors inside of the app, you can type in different HEX codes to <i>THEME_COLOR_CODE</i> (buttons, top bar, important words), <i>MAIN_COLOR_CODE</i> (the majority of text), and the <i>NAVIGATION_BAR_COLOR_CODE</i>.</span></li>
+	<li><span class="li-content">You can change the opacity of the Navigation Bar color by adding a decimal between 0 - 1 to <i>NAVIGATION_BAR_TRANSPARENCY_ALPHA</i>. If you don't want the navigation bar there at all, just set the transparency to 0.</span></li>
+	<li><span class="li-content">Most of the icons that display inside of the app are also controlled in this table. You can add custom icons by adding a link to a new custom icon image in the different fields. For example, you may add a different "back" arrow key to the <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i>.</span></li>
+	<li><span class="li-content">Once you're done, press "Update" to update your app.</span></li> </ol></p>
+
+	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
+	<table id = "tableC" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+						echo "<th>Edit</th>";
+						
+					foreach($tableC_heading as $value)
+					{
+						$tableC_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+							
+						echo "<th>".$value."</th>";
+					}
+					
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+			$tableC = $user->table_ODESSO_APP_BRANDING_UX1 ($odesso_app_id);
+			
+			foreach($tableC as $key=>$result)
+			{
+				echo "<tr>";
+					echo "<td><button type='submit' name='editC'>Update</button></td>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>
+</div> 
+
+<div class="table-responsive ">
+	<h3>Table 3: UX Part 1</h3><br>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>To start, fill out the User Experience table below.<ol><li>First, name your app in column 3 <i>APP_NAME</i>.
+	<li><span class="li-content">Copy and paste your logo into the fields <i>BUSINESS_LOGO_LINK</i> and <i>APP_ICON_LINK</i> to make it appear on your splash page and login page respectively.</span></li>
+	<li><span class="li-content">Customize your app by changing the <i>BACKGROUND_IMAGE_LINK</i> to a background image (make sure it's <i>750x1334 px</i> or <i>1080x1920 px</i>).</span></li>
+	<li><span class="li-content">To change colors inside of the app, you can type in different HEX codes to <i>THEME_COLOR_CODE</i> (buttons, top bar, important words), <i>MAIN_COLOR_CODE</i> (the majority of text), and the <i>NAVIGATION_BAR_COLOR_CODE</i>.</span></li>
+	<li><span class="li-content">You can change the opacity of the Navigation Bar color by adding a decimal between 0 - 1 to <i>NAVIGATION_BAR_TRANSPARENCY_ALPHA</i>. If you don't want the navigation bar there at all, just set the transparency to 0.</span></li>
+	<li><span class="li-content">Most of the icons that display inside of the app are also controlled in this table. You can add custom icons by adding a link to a new custom icon image in the different fields. For example, you may add a different "back" arrow key to the <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i>.</span></li>
+	<li><span class="li-content">Once you're done, press "Update" to update your app.</span></li> </ol></p>
+
+	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
+	<table id = "tableD" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+		<thead>
+			<tr style="border: 1px solid black;">
+				<?php
+						echo "<th>Edit</th>";
+						
+					foreach($tableD_heading as $value)
+					{
+						$tableD_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+							
+						echo "<th>".$value."</th>";
+					}
+					
+				?>
+			</tr>
+		</thead>
+	<tbody>
+		<?php
+			$tableD = $user->table_ODESSO_APP_BRANDING_UX2 ($odesso_app_id);
+			
+			foreach($tableD as $key=>$result)
+			{
+				echo "<tr>";
+					echo "<td><button type='submit' name='editD'>Update</button></td>";
+					foreach ($result as $key1=>$value)
+					{
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_ID')
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
+						}
+						else
+						{
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+						}
+					}
+				echo"</tr>";
+			}
+		?>
+	</tbody>
+	</table>
+	</form>
 </div> 
 
 <!-- End Table 0-->
@@ -328,6 +545,8 @@ $table1_arr[] 	= null;  $table2_arr[] 	= null;  $table3_arr[] = null;
 	</table>
 	</form>
 </div>
+ 
+
 
 <div class="table-responsive">
 	<h3> Table 3: (Optional) Text Customization  </h3><br>
@@ -415,7 +634,18 @@ $(document).ready(function() {
 		var table2_arr  	= <?php echo json_encode($table2_arr)?>;
 	
 		var table3_arr 		= <?php echo json_encode($table3_arr)?>;
-		console.log(table1_arr);
+		var tableA_arr 		= <?php echo json_encode($tableA_arr)?>;
+		
+		var tableB_arr 		= <?php echo json_encode($tableB_arr)?>;
+		
+		var tableC_arr 		= <?php echo json_encode($tableC_arr)?>;
+		
+		var tableD_arr 		= <?php echo json_encode($tableD_arr)?>;
+		
+		
+		
+		
+		// console.log(table1_arr);
 		/* Initialise the table1 with the required column ordering data types */
 		$('#table1').DataTable( {
 			"scrollX": true,
@@ -432,6 +662,30 @@ $(document).ready(function() {
 		$('#table3').DataTable( {
 				"scrollX": true,
 			"columns": table3_arr
+		} );
+	
+	/* Initialise the tableA with the required column ordering data types */
+		$('#tableA').DataTable( {
+				"scrollX": true,
+			"columns": tableA_arr
+		} );
+	
+	/* Initialise the tableB with the required column ordering data types */
+		$('#tableB').DataTable( {
+				"scrollX": true,
+			"columns": tableB_arr
+		} );
+	
+	/* Initialise the tableC with the required column ordering data types */
+		$('#tableC').DataTable( {
+				"scrollX": true,
+			"columns": tableC_arr
+		} );
+	
+	/* Initialise the tableD with the required column ordering data types */
+		$('#tableD').DataTable( {
+				"scrollX": true,
+			"columns": tableD_arr
 		} );
 	
 	
@@ -488,8 +742,9 @@ function upload(){
 						$('.error_msg').css('display','none');
 						$('.success_msg').css('display','block');
 						
-						$('.success_msg').html('File successfully uploaded: https://www.odesso.com/AppPt/Developerapi/' + user_name + '/'+data.image_with_path);
-					
+						// $('.success_msg').html('File successfully uploaded: https://www.odesso.com/AppPt/Developerapi/' + user_name + '/'+data.image_with_path);
+						$('.success_msg').html('File successfully uploaded, here is a link to your file. Please copy and paste it in a safe place since you will need it later:<?php echo BASE_URL.'/uploads';?>/' + user_name + '/'+data.image_with_path);
+						
 					
 					}else{
 									
