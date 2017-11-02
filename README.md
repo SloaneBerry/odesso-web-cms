@@ -10,7 +10,9 @@ This is the beta build of odesso's web content management system. It gives App M
 
 # History
 
-0.13 - New page called "Global Settings" added to CMS. APP_FEATURE table split into 7 tables. Shipping Method, Order Attributes, Payment Info, etc added - LIVE
+0.14 - Updated text on Update Branding.
+
+0.13 - New page called "Global Settings" added to CMS. APP_FEATURE table split into 7 tables. Shipping Method, Order Attributes, Payment Info, etc added - live
 
 0.12 - "Update Branding" split into 5 Tables: Images, Colors, UX (App table), UX (user table), Strings
 
@@ -20,4 +22,4 @@ This is the beta build of odesso's web content management system. It gives App M
 
 Development Schedule:
 
-0.14 - New page called "Notifications" added to CMS. APP_FEATURE table split into 7 tables - PUSH vs EMAIL + CUSTOMER / SP / MERCHANT + SYSTEM CANCELLATION
+0.15 - New page called "Notifications" added to CMS. APP_FEATURE table split into 7 tables - PUSH vs EMAIL + CUSTOMER / SP / MERCHANT + SYSTEM CANCELLATION

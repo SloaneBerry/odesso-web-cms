@@ -279,12 +279,9 @@ $tableD_arr[]	= null;
 
 <div class="table-responsive ">
 	<h3>Table 1: Update Branding</h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>To start, fill out the User Experience table below.<ol><li>First, name your app in column 3 <i>APP_NAME</i>.
-	<li><span class="li-content">Copy and paste your logo into the fields <i>BUSINESS_LOGO_LINK</i> and <i>APP_ICON_LINK</i> to make it appear on your splash page and login page respectively.</span></li>
-	<li><span class="li-content">Customize your app by changing the <i>BACKGROUND_IMAGE_LINK</i> to a background image (make sure it's <i>750x1334 px</i> or <i>1080x1920 px</i>).</span></li>
-	<li><span class="li-content">To change colors inside of the app, you can type in different HEX codes to <i>THEME_COLOR_CODE</i> (buttons, top bar, important words), <i>MAIN_COLOR_CODE</i> (the majority of text), and the <i>NAVIGATION_BAR_COLOR_CODE</i>.</span></li>
-	<li><span class="li-content">You can change the opacity of the Navigation Bar color by adding a decimal between 0 - 1 to <i>NAVIGATION_BAR_TRANSPARENCY_ALPHA</i>. If you don't want the navigation bar there at all, just set the transparency to 0.</span></li>
-	<li><span class="li-content">Most of the icons that display inside of the app are also controlled in this table. You can add custom icons by adding a link to a new custom icon image in the different fields. For example, you may add a different "back" arrow key to the <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i>.</span></li>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>To start building your app, let's first set up your branding.<ol><li>First, let's give your app a name by updating the <i>APP_NAME</i>.
+	<li><span class="li-content">To start branding your app, copy and paste your logo into the fields <i>BUSINESS_LOGO_LINK</i> and <i>APP_ICON_LINK</i> to make it appear on your splash page and login page respectively.</span></li>
+	<li><span class="li-content">Customize your app by changing the <i>BACKGROUND_IMAGE_LINK</i> to a background image (make sure it's <i>750x1334 px</i> or <i>1080x1920 px</i>).</span>
 	<li><span class="li-content">Once you're done, press "Update" to update your app.</span></li> </ol></p>
 
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
@@ -333,13 +330,14 @@ $tableD_arr[]	= null;
 
 
 <div class="table-responsive ">
-	<h3>Table 2: Colors</h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>To start, fill out the User Experience table below.<ol><li>First, name your app in column 3 <i>APP_NAME</i>.
-	<li><span class="li-content">Copy and paste your logo into the fields <i>BUSINESS_LOGO_LINK</i> and <i>APP_ICON_LINK</i> to make it appear on your splash page and login page respectively.</span></li>
-	<li><span class="li-content">Customize your app by changing the <i>BACKGROUND_IMAGE_LINK</i> to a background image (make sure it's <i>750x1334 px</i> or <i>1080x1920 px</i>).</span></li>
-	<li><span class="li-content">To change colors inside of the app, you can type in different HEX codes to <i>THEME_COLOR_CODE</i> (buttons, top bar, important words), <i>MAIN_COLOR_CODE</i> (the majority of text), and the <i>NAVIGATION_BAR_COLOR_CODE</i>.</span></li>
-	<li><span class="li-content">You can change the opacity of the Navigation Bar color by adding a decimal between 0 - 1 to <i>NAVIGATION_BAR_TRANSPARENCY_ALPHA</i>. If you don't want the navigation bar there at all, just set the transparency to 0.</span></li>
-	<li><span class="li-content">Most of the icons that display inside of the app are also controlled in this table. You can add custom icons by adding a link to a new custom icon image in the different fields. For example, you may add a different "back" arrow key to the <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i>.</span></li>
+	<h3>Table 2: Update App Colors</h3><br>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>Next, let's update the colors and look and feel of your app. In this section we'll be using Hexadecimal codes. These are 6-digit strings which will represent colors in your app. Here's a handy tool to allow you to look up colors inside of your app: <a href="https://color.adobe.com/">https://color.adobe.com/</a><ol>
+	<li><span class="li-content">To start, let's define your MAIN_COLOR_CODE. This represents the color of most of the text your user will read. You will want a color that contrasts against the background of the app. For example, if you have a white background you will probably want a black main color code (ex. 000000). Likewise, with a dark background you may want a white <i>MAIN_COLOR_CODE</i> (ex. FFFFFF)</span></li>
+	<li><span>Your <i>THEME_COLOR_CODE</i> should be a color that represents your brand. This color is used for your buttons, top bar, and important words you want to stand out.</span></li>
+	<li><span>The <i>TITLE_TEXT_COLOR</i> are your labels inside of the app. For example, at the top of the sidebar is a label that says "Menu". There are also labels inside of shopping carts and e-commerce orders, labeling time, location, etc.</span></li>
+	<li><span>An optional attribute you can add to orders or item selection are check boxes. You can change the color inside of a check box by setting a hex code in the <i>CHECK_BOX_COLOR_CODE</i>.</span></li>
+	<li><span>You can add or edit the bar at the top of your app by changing the <i>NAVIGATION_BAR_COLOR_CODE</i>. Just note, if you want to see text appear on the top bar, make sure the top bar color contrasts with your <i>THEME_COLOR_CODE</i>.</span></li>
+	<li><span class="li-content">You can also change how opaque or transparent the Navigation Bar color is by editing the <i>NAVIGATION_BAR_TRANSPARENCY_ALPHA</i>. If you want the navigation bar to be a full, solid color, set the tranparency to 1. If you don't want the navigation bar there at all, you can set the transparency to 0.</span></li>
 	<li><span class="li-content">Once you're done, press "Update" to update your app.</span></li> </ol></p>
 
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
@@ -387,14 +385,12 @@ $tableD_arr[]	= null;
 </div> 
 
 <div class="table-responsive ">
-	<h3>Table 3: UX Part 1</h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>To start, fill out the User Experience table below.<ol><li>First, name your app in column 3 <i>APP_NAME</i>.
-	<li><span class="li-content">Copy and paste your logo into the fields <i>BUSINESS_LOGO_LINK</i> and <i>APP_ICON_LINK</i> to make it appear on your splash page and login page respectively.</span></li>
-	<li><span class="li-content">Customize your app by changing the <i>BACKGROUND_IMAGE_LINK</i> to a background image (make sure it's <i>750x1334 px</i> or <i>1080x1920 px</i>).</span></li>
-	<li><span class="li-content">To change colors inside of the app, you can type in different HEX codes to <i>THEME_COLOR_CODE</i> (buttons, top bar, important words), <i>MAIN_COLOR_CODE</i> (the majority of text), and the <i>NAVIGATION_BAR_COLOR_CODE</i>.</span></li>
-	<li><span class="li-content">You can change the opacity of the Navigation Bar color by adding a decimal between 0 - 1 to <i>NAVIGATION_BAR_TRANSPARENCY_ALPHA</i>. If you don't want the navigation bar there at all, just set the transparency to 0.</span></li>
-	<li><span class="li-content">Most of the icons that display inside of the app are also controlled in this table. You can add custom icons by adding a link to a new custom icon image in the different fields. For example, you may add a different "back" arrow key to the <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i>.</span></li>
-	<li><span class="li-content">Once you're done, press "Update" to update your app.</span></li> </ol></p>
+	<h3>Table 3: Global Icons</h3><br>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>Your app also contains icons that give the users a hint of what to do. By default, your app uses <a href="https://material.io/icons/">Google's Universal Material Design Icons</a>, but if you want to create unique ones or change the color, you can edit it in this table. <ol>
+		<li><span class="li-content">The <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i> is your "back" button. <img src="../GoogleUX/iOS/Black/ic_arrow_back_3x.png"></span></li>
+		<li><span class="li-content">The <i>NAVIGATION_BAR_NEXT_IMAGE_LINK</i> is your "forward" button. <img src="../GoogleUX/iOS/Black/ic_arrow_forward_3x.png"></span></li>
+		<li><span class="li-content">The <i>NAVIGATION_BAR_IMAGE_MENU_IMAGE_LINK</i> is your "menu" button. <img src="../GoogleUX/iOS/Black/ic_arrow_menu_3x.png"></span></li>
+	<li><span class="li-content">Note that even if you aren't using a particular icon, you do need to link to a valid icon in this table. There can be no empty spaces.</span></li> </ol></p>
 
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
 	<table id = "tableC" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
@@ -441,15 +437,11 @@ $tableD_arr[]	= null;
 </div> 
 
 <div class="table-responsive ">
-	<h3>Table 3: UX Part 1</h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>To start, fill out the User Experience table below.<ol><li>First, name your app in column 3 <i>APP_NAME</i>.
-	<li><span class="li-content">Copy and paste your logo into the fields <i>BUSINESS_LOGO_LINK</i> and <i>APP_ICON_LINK</i> to make it appear on your splash page and login page respectively.</span></li>
-	<li><span class="li-content">Customize your app by changing the <i>BACKGROUND_IMAGE_LINK</i> to a background image (make sure it's <i>750x1334 px</i> or <i>1080x1920 px</i>).</span></li>
-	<li><span class="li-content">To change colors inside of the app, you can type in different HEX codes to <i>THEME_COLOR_CODE</i> (buttons, top bar, important words), <i>MAIN_COLOR_CODE</i> (the majority of text), and the <i>NAVIGATION_BAR_COLOR_CODE</i>.</span></li>
-	<li><span class="li-content">You can change the opacity of the Navigation Bar color by adding a decimal between 0 - 1 to <i>NAVIGATION_BAR_TRANSPARENCY_ALPHA</i>. If you don't want the navigation bar there at all, just set the transparency to 0.</span></li>
-	<li><span class="li-content">Most of the icons that display inside of the app are also controlled in this table. You can add custom icons by adding a link to a new custom icon image in the different fields. For example, you may add a different "back" arrow key to the <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i>.</span></li>
-	<li><span class="li-content">Once you're done, press "Update" to update your app.</span></li> </ol></p>
-
+	<h3>Table 4: Login Screen Icons</h3><br>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>There are just 2 icons on this table.
+	<ol><li>The <i>ICON_PALETTE_EMAIL_LINK</i> is the icon next to the user email input. <img src="../Image/Odesso/UserModule/icon_email_dark.png"></li>
+	<li>The <i>ICON_PALETTE_PASSWORD_LINK</i> is the icon next to the user email input. <img src="../Image/Odesso/UserModule/icon_password_dark.png"></li>
+	</ol></p>
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
 	<table id = "tableD" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
 		<thead>
@@ -496,7 +488,7 @@ $tableD_arr[]	= null;
 
 <!-- End Table 0-->
 
-<div class="table-responsive ">
+<!-- <div class="table-responsive ">
 	<h3 >Table 2: Turning Features On/Off </h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>Each app needs custom rules, and this table is where we set many of the features that an app will have. Below is a large table which covers things from E-Commerce settings to Notification settings to Cancellation workflow settings. This table uses binary commands <b>0 and 1</b> for <b>OFF/ON</b>. For example, if you want to add coupons to the app, look up <i>COUPON_INCLUDED</i> and change from 0 to 1.<br><br>
 	For this demo, let's allow customers to upload images when they place an order. <ol>
@@ -545,11 +537,11 @@ $tableD_arr[]	= null;
 	</table>
 	</form>
 </div>
- 
+ -->
 
 
 <div class="table-responsive">
-	<h3> Table 3: (Optional) Text Customization  </h3><br>
+	<h3> Table 5: (Optional) Text Customization  </h3><br>
 	<p>Now that we have a complete wireframe for your app, you can feel free to go back and add more store items, images, categories, and design it further! You may have also noticed we have templated words and sentences throughout the app. All of this is customizable, and can be changed by looking it up in the below table. The fastest way is to use the search function to find the String you wish to change, and edit the <i>BODY</i>. <b>Make sure you don't touch the <i>APP_ID</i> or <i>TAG</i></b>. When you're done, press "Update" on each individual line.</p>
 
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
