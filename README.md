@@ -10,9 +10,12 @@ This is the beta build of odesso's web content management system. It gives App M
 
 # History
 
-0.13 - New page called "Global Settings" added to CMS. APP_FEATURE table split into 7 tables. Shipping Method, Order Attributes, Payment Info, etc added.
-0.12 - "Update Branding" split into 5 Tables: Images, Colors, UX (App table), UX (user table), Strings - LIVE
+0.13 - New page called "Global Settings" added to CMS. APP_FEATURE table split into 7 tables. Shipping Method, Order Attributes, Payment Info, etc added - LIVE
+
+0.12 - "Update Branding" split into 5 Tables: Images, Colors, UX (App table), UX (user table), Strings
+
 0.11 - Added color picker, icons, etc to Simulator page. "Search" function fixed. Deprecated files archived. - https://github.com/SloaneBerry/odesso-web-cms/commit/f9a2e289c2e4f8910c6bd4ea7df27acbef8af496
+
 0.10 - Base files for all - https://github.com/SloaneBerry/odesso-web-cms/commit/cc60683ca88c0da6ac66c1ed52acb5ef50fecf7c
 
 Development Schedule:
