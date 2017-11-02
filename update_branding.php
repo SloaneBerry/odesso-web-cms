@@ -387,10 +387,16 @@ $tableD_arr[]	= null;
 <div class="table-responsive ">
 	<h3>Table 3: Global Icons</h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>Your app also contains icons that give the users a hint of what to do. By default, your app uses <a href="https://material.io/icons/">Google's Universal Material Design Icons</a>, but if you want to create unique ones or change the color, you can edit it in this table. <ol>
-		<li><span class="li-content">The <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i> is your "back" button. <img src="../GoogleUX/iOS/Black/ic_arrow_back_3x.png"></span></li>
-		<li><span class="li-content">The <i>NAVIGATION_BAR_NEXT_IMAGE_LINK</i> is your "forward" button. <img src="../GoogleUX/iOS/Black/ic_arrow_forward_3x.png"></span></li>
-		<li><span class="li-content">The <i>NAVIGATION_BAR_IMAGE_MENU_IMAGE_LINK</i> is your "menu" button. <img src="../GoogleUX/iOS/Black/ic_arrow_menu_3x.png"></span></li>
-	<li><span class="li-content">Note that even if you aren't using a particular icon, you do need to link to a valid icon in this table. There can be no empty spaces.</span></li> </ol></p>
+		<li><span class="li-content">The <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i> is your "back" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_arrow_back.png"></span></li>
+		<li><span class="li-content">The <i>NAVIGATION_BAR_NEXT_IMAGE_LINK</i> is your "forward" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_arrow_forward.png"></span></li>
+		<li><span class="li-content">The <i>NAVIGATION_BAR_IMAGE_MENU_IMAGE_LINK</i> is your "menu" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_menu.png"></span></li>
+		<li><span class="li-content">The <i>LOCATE_IMAGE_LINK</i> is your "GPS" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_place.png"></span></li>
+		<li><span class="li-content">The <i>EDIT_IMAGE_LINK</i> is your "edit" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_edit.png"></span></li>
+		<li><span class="li-content">The <i>NAVIGATION_BAR_ADD_IMAGE_LINK</i> is your "add" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_add.png"></span></li>
+		<li><span class="li-content">The <i>NAVIGATION_BAR_CART_IMAGE_LINK</i> is your "shopping cart" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/cart_black.png" height="24" width="24"></span></li>
+		<li><span class="li-content">The <i>SPINNER_IMAGE_LINK</i> is your "loading" spinner. <img src="../../AppDev/OdessoPlatform/Image/Odesso/app_spinner.png" height="24" width="24"></span></li>
+		<li><span class="li-content">The <i>NAVIGATION_BAR_REFRESH_IMAGE_LINK</i> is your "refresh" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_refresh	.png"></span></li></ol><br/>
+	<span class="li-content">Note that even if you aren't using a particular icon, you do need to link to a valid icon in this table. There can be no empty spaces.</span></p>
 
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
 	<table id = "tableC" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
@@ -439,8 +445,8 @@ $tableD_arr[]	= null;
 <div class="table-responsive ">
 	<h3>Table 4: Login Screen Icons</h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>There are just 2 icons on this table.
-	<ol><li>The <i>ICON_PALETTE_EMAIL_LINK</i> is the icon next to the user email input. <img src="../Image/Odesso/UserModule/icon_email_dark.png"></li>
-	<li>The <i>ICON_PALETTE_PASSWORD_LINK</i> is the icon next to the user email input. <img src="../Image/Odesso/UserModule/icon_password_dark.png"></li>
+	<ol><li>The <i>ICON_PALETTE_EMAIL_LINK</i> is the icon next to the user email input. <img src="../../AppProd/OdessoPlatform/Image/Odesso/UserModule/icon_email_dark.png" height="24" width="24"></li>
+	<li>The <i>ICON_PALETTE_PASSWORD_LINK</i> is the icon next to the user email input. <img src="../../AppProd/OdessoPlatform/Image/Odesso/UserModule/icon_password_dark.png" height="24" width="24"></li>
 	</ol></p>
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
 	<table id = "tableD" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
