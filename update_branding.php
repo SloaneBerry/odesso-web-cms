@@ -331,7 +331,7 @@ $tableD_arr[]	= null;
 
 <div class="table-responsive ">
 	<h3>Table 2: Update App Colors</h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>Next, let's update the colors and look and feel of your app. In this section we'll be using Hexadecimal codes. These are 6-digit strings which will represent colors in your app. Here's a handy tool to allow you to look up colors inside of your app: <a href="https://color.adobe.com/">https://color.adobe.com/</a><ol>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>Next, let's update the colors and look and feel of your app. In this section we'll be using Hexadecimal codes. These are 6-digit strings which will represent colors in your app. Here's a handy tool to allow you to look up colors inside of your app: <a href="https://color.adobe.com/" target="_blank">https://color.adobe.com/</a><ol>
 	<li><span class="li-content">To start, let's define your MAIN_COLOR_CODE. This represents the color of most of the text your user will read. You will want a color that contrasts against the background of the app. For example, if you have a white background you will probably want a black main color code (ex. 000000). Likewise, with a dark background you may want a white <i>MAIN_COLOR_CODE</i> (ex. FFFFFF)</span></li>
 	<li><span>Your <i>THEME_COLOR_CODE</i> should be a color that represents your brand. This color is used for your buttons, top bar, and important words you want to stand out.</span></li>
 	<li><span>The <i>TITLE_TEXT_COLOR</i> are your labels inside of the app. For example, at the top of the sidebar is a label that says "Menu". There are also labels inside of shopping carts and e-commerce orders, labeling time, location, etc.</span></li>
@@ -386,7 +386,7 @@ $tableD_arr[]	= null;
 
 <div class="table-responsive ">
 	<h3>Table 3: Global Icons</h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>Your app also contains icons that give the users a hint of what to do. By default, your app uses <a href="https://material.io/icons/">Google's Universal Material Design Icons</a>, but if you want to create unique ones or change the color, you can edit it in this table. <ol>
+	<p>Your app also contains icons that give the users a hint of what to do. By default, your app uses <a href="https://material.io/icons/" target="_blank">Google's Universal Material Design Icons</a>, but if you want to create unique ones or change the color, you can edit it in this table. <ol>
 		<li><span class="li-content">The <i>NAVIGATION_BAR_BACK_IMAGE_LINK</i> is your "back" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_arrow_back.png"></span></li>
 		<li><span class="li-content">The <i>NAVIGATION_BAR_NEXT_IMAGE_LINK</i> is your "forward" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_arrow_forward.png"></span></li>
 		<li><span class="li-content">The <i>NAVIGATION_BAR_IMAGE_MENU_IMAGE_LINK</i> is your "menu" button. <img src="../../AppProd/OdessoPlatform/GoogleUX/iOS/Black/ic_menu.png"></span></li>
@@ -548,7 +548,7 @@ $tableD_arr[]	= null;
 
 <div class="table-responsive">
 	<h3> Table 5: (Optional) Text Customization  </h3><br>
-	<p>Now that we have a complete wireframe for your app, you can feel free to go back and add more store items, images, categories, and design it further! You may have also noticed we have templated words and sentences throughout the app. All of this is customizable, and can be changed by looking it up in the below table. The fastest way is to use the search function to find the String you wish to change, and edit the <i>BODY</i>. <b>Make sure you don't touch the <i>APP_ID</i> or <i>TAG</i></b>. When you're done, press "Update" on each individual line.</p>
+	<p>	You may have also noticed we have templated words and sentences throughout the app. All of this is customizable, and can be changed by looking it up in the below table. The fastest way is to use the search function to find the String you wish to change, and edit the <b><i>BODY</i></b>. Make sure you don't touch the <i>APP_ID</i> or <i>TAG</i></b>. When you're done, press "Update" on each individual line.</p>
 
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
 	<table id = "table3" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">

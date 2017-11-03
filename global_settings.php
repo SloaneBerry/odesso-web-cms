@@ -364,11 +364,12 @@ $table15A_arr[] = null;	 $table18_arr[] = null;	 $table36_arr[] = null;
 
 <div class="table-responsive ">
 	<h3 >Table 1: Global Workflow Settings</h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>Each app needs custom rules, and this table is where we set many of the features that an app will have. Below is a large table which covers things from E-Commerce settings to Notification settings to Cancellation workflow settings. This table uses binary commands <b>0 and 1</b> for <b>OFF/ON</b>. For example, if you want to add coupons to the app, look up <i>COUPON_INCLUDED</i> and change from 0 to 1.<br><br>
-	For this demo, let's allow customers to upload images when they place an order. <ol>
-	<li>To do so, simply assign '1' to <i>IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED</i>.</li> <li>The column next to it lets you set the maximum number of images a customer can upload to an order. Let's set <i>MAX_IMAGE_NUMBER</i> to '5'.</li>
-	<li>Scroll back to the left and press "Update" to refresh the table.</li></ol><br>
-	There are many more features in this table, but we will get to them later.</p>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>Each app needs custom rules, and this section is where we set many of the features that an app will have, from e-commerce settings to cancellation workflows. This table introduces binary commands, called booleans where <b>0</b> means <b>OFF</b> and <b>1</b> means <b>ON</b>.<br>
+	On this table, we can allow customers to upload images when they place an order. <ol>
+	<li>Turn on image uploads, simply assign '1' to <i>IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED</i>. To turn it off, assign '0'.</li>
+	<li>The next column, <i>MAX_IMAGE_NUMBER</i> is not a boolean record. Instead it requires an integer (a whole number). If you want a user to upload up to 5 images, you can enter '5'.</li>
+	<li>The next boolean record is <i>IS_SP_ALLOWED_TO_SELECT_ITEMS</i>. Here you can decide if your service providers are able to select the workflows that they can complete. If this is set to 0, the service provider cannot select which items which workflows will be visible to then. If this is set to 1, the service provider can choose which workflows to partipate in.</li>
+	<li>The last option on this list lets you decide if you want to let users message one another in the app. To allow a direct messaging button in a user's profile, set the <i>IS_USER_DETAIL_CHAT_ON</i> to 1. To turn off messaging, set it to 0.</ol></p>
 
 	<form method="post" action="global_settings.php?id=<?php echo $odesso_app_id; ?>">
 	<table id = "table1A" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
@@ -415,11 +416,11 @@ $table15A_arr[] = null;	 $table18_arr[] = null;	 $table36_arr[] = null;
 
 <div class="table-responsive ">
 	<h3 >Table 2: E-Commerce Settings</h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>Each app needs custom rules, and this table is where we set many of the features that an app will have. Below is a large table which covers things from E-Commerce settings to Notification settings to Cancellation workflow settings. This table uses binary commands <b>0 and 1</b> for <b>OFF/ON</b>. For example, if you want to add coupons to the app, look up <i>COUPON_INCLUDED</i> and change from 0 to 1.<br><br>
-	For this demo, let's allow customers to upload images when they place an order. <ol>
-	<li>To do so, simply assign '1' to <i>IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED</i>.</li> <li>The column next to it lets you set the maximum number of images a customer can upload to an order. Let's set <i>MAX_IMAGE_NUMBER</i> to '5'.</li>
-	<li>Scroll back to the left and press "Update" to refresh the table.</li></ol><br>
-	There are many more features in this table, but we will get to them later.</p>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>Next you can configure your app for E-Commerce.<br><br>
+	<ol><li>By default, your app will allow a user to submit data, and that data to be available to another user. We call this a data transaction. Most apps will want this to remain ON, but if you only want to displaying information, then the <i>TRANSACTION_INCLUDED</i> field should be set to 0. Note that later on we can turn on and off data transactions for each specific workflow.</li>
+	<li>With each transaction, we can also transmit money and process payments. To allow this, we need to allow customers to input their credit card information, so set the <i>IS_CUSTOMER_UPDATE_PAYMENT_ON</i> to 1. If you don't want to collect credit card information, set this to 0.</li>
+	<li>During the e-commerce order, you can also choose if you want to add coupons or referral codes. To allow users to enter a coupon set <i>COUPON_INCLUDED</i> to 1.</li> 
+	<li>Finally, if you wish to allow your customer to purchase multiple products or services at once, you can add a shopping cart to your app. To turn on your shopping cart, change <i>IS_STORE_CART_NEEDED</i> to 1.</li></p>
 
 	<form method="post" action="global_settings.php?id=<?php echo $odesso_app_id; ?>">
 	<table id = "table1B" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
@@ -465,11 +466,25 @@ $table15A_arr[] = null;	 $table18_arr[] = null;	 $table36_arr[] = null;
 
 <div class="table-responsive ">
 	<h3 >Table 3: Order List View and History View</h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>Each app needs custom rules, and this table is where we set many of the features that an app will have. Below is a large table which covers things from E-Commerce settings to Notification settings to Cancellation workflow settings. This table uses binary commands <b>0 and 1</b> for <b>OFF/ON</b>. For example, if you want to add coupons to the app, look up <i>COUPON_INCLUDED</i> and change from 0 to 1.<br><br>
-	For this demo, let's allow customers to upload images when they place an order. <ol>
-	<li>To do so, simply assign '1' to <i>IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED</i>.</li> <li>The column next to it lets you set the maximum number of images a customer can upload to an order. Let's set <i>MAX_IMAGE_NUMBER</i> to '5'.</li>
-	<li>Scroll back to the left and press "Update" to refresh the table.</li></ol><br>
-	There are many more features in this table, but we will get to them later.</p>
+	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>In this section we will decide how to display information inside of your app. There are 5 fields that you can use to display information to your users in list view. You can include the following variables 
+	<ul><li>Order Confirmation Code: #store_order_confirmation_code#</li> 
+	<li>Order Status: #store_order_status#</li>
+	<li>Order Schedule Time: #store_order_schedule_time#</li>
+	<li>Order Creation Time: #store_order_created_time#</li>
+	<li>Total Transaction Amount: #store_order_transaction_amount#</li>
+	<li>Subtotal Order Amount (Pre-Coupon/Extra Fees/Mileage): #store_order_order_amount#</li>
+	<li>Order Location Method (ex. Delivery, Pick-Up, Shipping): #store_order_location_method#</li>
+	<li>Shipping Name: #store_order_shipping_name#</li>
+	<li>Customer First Name: #no_end_user_first_name#</li>
+	<li>Customer Last Name: #no_end_user_last_name#</li>
+	<li>Customer's Email: #no_end_user_email#</li>
+	</ul>If your app is NOT using a shopping cart, you can also use these variables:
+	<ul>
+	<li>Item Name: #no_cart_order_item_name#</li>
+	<li>Item Quantity: #no_cart_order_item_quantity#</li>
+	<li>Order Attribute (Names): #no_cart_order_item_attribute_name_list#</li>
+	<li>Order Attribute (Values): #no_cart_order_item_attribute_value_list#</li>
+	</ul><br></p>
 
 	<form method="post" action="global_settings.php?id=<?php echo $odesso_app_id; ?>">
 	<table id = "table15A" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
@@ -517,13 +532,16 @@ $table15A_arr[] = null;	 $table18_arr[] = null;	 $table36_arr[] = null;
 <div class="table-responsive">
 	<h3> Table 4: Manage App Addresses </h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="454px">
-	<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-		Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-		when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-		It has survived not only five centuries, but also the leap into electronic typesetting, 
-		remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-		sheets containing Lorem Ipsum passages, and more recently with desktop publishing software 
-		like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	<p>Some apps require multiple locations, such as a "Pickup" and "Dropoff" location. By default, your app can handle the following fulfillment methods:
+	<ul><li>"Offsite" - These are orders similar to a delivery to a specific address. These are inputted by the customer.</li>
+	<li>"Onsite" - Each app can have one pre-defined location, such as a store location where someone can do in-store pickup.</li>
+	<li>"Shipping" - This is for orders traveling via mail, not hand-delivered.</li></ul>
+	If you need multiple addresses, you can "insert" a new one.
+	<li>Start by choosing the <i>LOCATION_METHOD</i> you choose to add.</li>
+	<li>Next assign a <i>NAME</i> that the user will see (for example "Delivery Address").</li>
+	<li>If you want your customer to input their own address, set <i>IS_INPUT</i> to 1. If you want it to be set to a custom address, set this to 0.</li>
+	<li>If <i>IS_INPUT</i> is 0, then  you need to assign the custom address. Look up the <i>ODESSO_APP_ADDRESS_ID</i> you want to use on the <b>ODESSO_APP_ADDRESS</b> table. Make sure that the TYPE is <b>App module store address</b></li>
+	<li>Only one address of each <i>LOCATION_METHOD</i> can be broadcast to service providers for them to discover. To turn on the address for broadcasting, set the field to 1. If you do not want it to broadcast, set the field to 0.</li></p>
 <!-- TABLE 18: INSERT STARTS -->
 	
 	<form class = "frm_insert" method="post" action="global_settings.php?id=<?php echo $odesso_app_id; ?>">
@@ -628,13 +646,11 @@ $table15A_arr[] = null;	 $table18_arr[] = null;	 $table36_arr[] = null;
 <div class="table-responsive">
 	<h3> Table 5: Shipping Carriers</h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="454px">
-	<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-		Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-		when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-		It has survived not only five centuries, but also the leap into electronic typesetting, 
-		remaining essentially unchanged. It was popularised in the 2060s with the release of Letraset 
-		sheets containing Lorem Ipsum passages, and more recently with desktop publishing software 
-		like Aldus PageMaker including versions of Lorem Ipsum.</p>
+	<p>If your app involves shipping products to a customer, then you can add as many different shipping carriers as you would like.<ol>
+	<li>The <i>SHIPPING_CARRIER</i> and the <i>SHIPPING_DESCRIPTION</i> are for your internal use. You can label these whatever you want, the customer will not see it.</li>
+	<li>The <i>SHIPPING_NAME</i> is revealed to the customer in the app.</li>
+	<li>You can also assign a <i>SHIPPING_PRICE</i> for each shipping option you give to customers. These prices are listed in <b>CENTS</b>. So for example, a $5 shipping fee should be "500".
+	</p>
 <!-- TABLE 36 INSERT STARTS -->
 	
 	<form class = "frm_insert" method="post" action="global_settings.php?id=<?php echo $odesso_app_id; ?>">
@@ -783,7 +799,7 @@ $table15A_arr[] = null;	 $table18_arr[] = null;	 $table36_arr[] = null;
 </div>
 
 <div class="table-responsive ">
-	<h3 >Table 8: User Profile Information Privacy</h3><br>
+	<h3 >Table 7: User Profile Information Privacy</h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>Each app needs custom rules, and this table is where we set many of the features that an app will have. Below is a large table which covers things from E-Commerce settings to Notification settings to Cancellation workflow settings. This table uses binary commands <b>0 and 1</b> for <b>OFF/ON</b>. For example, if you want to add coupons to the app, look up <i>COUPON_INCLUDED</i> and change from 0 to 1.<br><br>
 	For this demo, let's allow customers to upload images when they place an order. <ol>
 	<li>To do so, simply assign '1' to <i>IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED</i>.</li> <li>The column next to it lets you set the maximum number of images a customer can upload to an order. Let's set <i>MAX_IMAGE_NUMBER</i> to '5'.</li>
@@ -833,7 +849,7 @@ $table15A_arr[] = null;	 $table18_arr[] = null;	 $table36_arr[] = null;
 </div>
 
 <div class="table-responsive ">
-	<h3 >Table 9: Service Provider Cancellation Settings</h3><br>
+	<h3 >Table 8: Service Provider Cancellation Settings</h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>Each app needs custom rules, and this table is where we set many of the features that an app will have. Below is a large table which covers things from E-Commerce settings to Notification settings to Cancellation workflow settings. This table uses binary commands <b>0 and 1</b> for <b>OFF/ON</b>. For example, if you want to add coupons to the app, look up <i>COUPON_INCLUDED</i> and change from 0 to 1.<br><br>
 	For this demo, let's allow customers to upload images when they place an order. <ol>
 	<li>To do so, simply assign '1' to <i>IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED</i>.</li> <li>The column next to it lets you set the maximum number of images a customer can upload to an order. Let's set <i>MAX_IMAGE_NUMBER</i> to '5'.</li>
@@ -883,7 +899,7 @@ $table15A_arr[] = null;	 $table18_arr[] = null;	 $table36_arr[] = null;
 </div>
 
 <div class="table-responsive ">
-	<h3>Table 10: System Cancellation Time</h3><br>
+	<h3>Table 9: System Cancellation Time</h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>Choose the amount of time (in seconds) an order will be available before it is cancelled by the system.<br/>
 	Example:<ul>
 		<li>1 Hour = 3600</li>
@@ -938,7 +954,7 @@ $table15A_arr[] = null;	 $table18_arr[] = null;	 $table36_arr[] = null;
 </div> 
 
 <div class="table-responsive ">
-	<h3>Table 12: Advanced Business Rules</h3><br>
+	<h3>Table 10: Advanced Business Rules</h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>If you want to assign services to users, there is an option to assign it upon signup using the business rule above.</p>
 
 	<form method="post" action="global_settings.php?id=<?php echo $odesso_app_id; ?>">

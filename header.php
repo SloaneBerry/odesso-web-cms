@@ -52,7 +52,7 @@ $(window).load(function() {
 </script>
 <head>
 <title>
-	Odesso Training
+	Odesso Content Management
 </title>
 <link href="css/style.css" rel="stylesheet" />
 <link href="css/datatable.css" rel="stylesheet" />
@@ -72,7 +72,6 @@ $APP_TYPE_CLS =  $_SESSION['APP_TYPE_CLS'] ? $_SESSION['APP_TYPE_CLS'] : 'APP_PT
 <div class="header">
 	<div class="website_title">
 		Welcome <?php echo $_SESSION['username'] ;?>
-		
 	</div> 
 		
 	<div class="logout">
