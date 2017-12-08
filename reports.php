@@ -59,8 +59,12 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 					foreach($table3_heading as $value)
 					{
 						$table1_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table3_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
 						
-						echo "<th>".$value."</th>";
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -79,8 +83,25 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
-						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."'></td>";
+						{	
+							if(in_array($key1,$table3_heading_tinyint))
+								{
+									$checked_box = '';
+									if($value == '1')
+									{
+										$checked_box = 'checked';
+									}
+									echo "<td>
+									<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+									
+									<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."' ></td>";
+								}
+								else
+								{
+									
+							// echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."'></td>";
+							echo "<td><textarea name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."]>".$value."</textarea></td>";
+								}
 						}
 					}
 				echo"</tr>";
@@ -110,8 +131,12 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 					foreach($table4_heading as $value)
 					{
 						$table2_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table2_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
 						
-						echo "<th>".$value."</th>";
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -127,11 +152,28 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_STORE_STORE_ITEM_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table2_heading_tinyint))
+								{
+									$checked_box = '';
+									if($value == '1')
+									{
+										$checked_box = 'checked';
+									}
+									echo "<td>
+									<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+									
+									<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."' ></td>";
+								}
+								else
+								{
+									
+									// echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' ></td>";
+									echo "<td><textarea name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."]>".$value."</textarea></td>";
+								}
 						}
 					}
 				echo"</tr>";
@@ -162,8 +204,12 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 					foreach($table12_heading as $value)
 					{
 						$table3_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table12_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
 						
-						echo "<th>".$value."</th>";
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -183,7 +229,24 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table12_heading_tinyint))
+								{
+									$checked_box = '';
+									if($value == '1')
+									{
+										$checked_box = 'checked';
+									}
+									echo "<td>
+									<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+									
+									<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."' ></td>";
+								}
+								else
+								{
+									
+									echo "<td><textarea rows = '3' cols = '40' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE_ID']."]>".$value."</textarea></td>";
+									// echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE_ID']."] value='".$value."' ></td>";
+								}
 						}
 					}
 				echo"</tr>";
@@ -213,8 +276,12 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 					foreach($table13_heading as $value)
 					{
 						$table4_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table13_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
 						
-						echo "<th>".$value."</th>";
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -228,13 +295,30 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 				echo "<tr>";
 					foreach ($result as $key1=>$value)
 					{
-						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE_ID')
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE_ID'|| $key1=='ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE_ID')
 						{
 						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table13_heading_tinyint))
+								{
+									$checked_box = '';
+									if($value == '1')
+									{
+										$checked_box = 'checked';
+									}
+									echo "<td>
+									<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+									
+									<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."' ></td>";
+								}
+								else
+								{
+									
+								// echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+								echo "<td><textarea name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE_ID']."]>".$value."</textarea></td>";
+								}
 						}
 					}
 				echo"</tr>";
@@ -261,11 +345,16 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
+				
 					foreach($table14_heading as $value)
 					{
 						$table5_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table14_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
 						
-						echo "<th>".$value."</th>";
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -285,7 +374,23 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_ORDER_ADDRESS_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table14_heading_tinyint))
+								{
+									$checked_box = '';
+									if($value == '1')
+									{
+										$checked_box = 'checked';
+									}
+									echo "<td>
+									<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+									
+									<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."' ></td>";
+								}
+								else
+								{
+									// echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_ORDER_ADDRESS_ID']."] value='".$value."' ></td>";
+									echo "<td><textarea name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_ORDER_ADDRESS_ID']."]>".$value."</textarea></td>";
+								}
 						}
 					}
 				echo"</tr>";
@@ -316,8 +421,12 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 					foreach($table15_heading as $value)
 					{
 						$table6_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table15_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
 						
-						echo "<th>".$value."</th>";
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -333,11 +442,27 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_END_USER_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table15_heading_tinyint))
+								{
+									$checked_box = '';
+									if($value == '1')
+									{
+										$checked_box = 'checked';
+									}
+									echo "<td>
+									<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+									
+									<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."' ></td>";
+								}
+								else
+								{
+									// echo "<td><input type='text' name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' ></td>";
+									echo "<td><textarea name=".$key1."[".$result['ODESSO_END_USER_ID']."]>".$value."</textarea></td>";
+								}
 						}
 					}
 				echo"</tr>";
@@ -368,8 +493,12 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 					foreach($table7_heading as $value)
 					{
 						$table7_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table7_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
 						
-						echo "<th>".$value."</th>";
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -385,11 +514,27 @@ $table15		 = $user->table_ODESSO_END_USER($odesso_app_id);
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table7_heading_tinyint))
+								{
+									$checked_box = '';
+									if($value == '1')
+									{
+										$checked_box = 'checked';
+									}
+									echo "<td>
+									<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+									
+									<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_ITEM_ID']."] value='".$value."' ></td>";
+								}
+								else
+								{
+									// echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+									echo "<td><textarea name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."]>".$value."</textarea></td>";
+								}
 						}
 					}
 				echo"</tr>";
@@ -493,6 +638,17 @@ $(document).ready(function() {
 	
 	
 } );
+function coloumn_checkbox(that)
+{
+	if($(that).is(':checked'))
+	{
+		$(that).parent('td').find('input.coloumn_checkbox').val('1');
+	}
+	else
+	{
+		$(that).parent('td').find('input.coloumn_checkbox').val('0');
+	}
+}
 
 
 

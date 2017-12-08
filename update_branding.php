@@ -71,20 +71,20 @@ if(isset($_POST['logout'])){
 if(isset($_POST['edit1'])){
 	foreach($table_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP($value,$updated_value,$key);
+				$user->update_ODESSO_APP($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['editA'])){
 	foreach($tableA_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP($value,$updated_value,$key);
+				$user->update_ODESSO_APP($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 	// echo "<meta http-equiv='refresh' content='0'>";
@@ -92,90 +92,90 @@ if(isset($_POST['editA'])){
 if(isset($_POST['editB'])){
 	foreach($tableB_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP($value,$updated_value,$key);
+				$user->update_ODESSO_APP($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['editC'])){
 	foreach($tableC_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP($value,$updated_value,$key);
+				$user->update_ODESSO_APP($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['editD'])){
 	foreach($tableD_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_USER($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_USER($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit2'])){
 	foreach($table1_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_FEATURE($value,$updated_value,$key);
+				$user->update_ODESSO_APP_FEATURE($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit3'])){
 	foreach($table2_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_STORE_CATEGORY($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_STORE_CATEGORY($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit4'])){
 	foreach($table3_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_table_ODESSO_APP_MODULE_ITEM($value,$updated_value,$key);
+				$user->update_table_ODESSO_APP_MODULE_ITEM($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit5'])){
 	foreach($table4_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit6'])){
 	foreach($table5_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_INVENTORY($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_INVENTORY($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit7'])){
 	foreach($table6_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_LOCATION_SCHEDULE($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_LOCATION_SCHEDULE($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
@@ -183,78 +183,80 @@ if(isset($_POST['edit7'])){
 if(isset($_POST['edit8'])){
 	foreach($table7_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit9'])){
 	foreach($table8_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_USER_USER_TYPE($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_USER_USER_TYPE($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit10'])){
 	foreach($table9_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_REF_STRING($value,$updated_value,$key);
+				$user->update_ODESSO_APP_REF_STRING($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit11'])){
 	foreach($table10_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_INFORMATION($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_INFORMATION($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit12'])){
 	foreach($table11_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_WEB($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_WEB($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit13'])){
 	foreach($table12_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit14'])){
 	foreach($table13_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 
 
-$table1_arr[] 	= null;  $table2_arr[] 	= null;  $table3_arr[] = null;
 $tableA_arr[]	= null;	 $tableB_arr[]	= null;	 $tableC_arr[] = null;
-$tableD_arr[]	= null; 
+$tableD_arr[]	= null; $table9_arr[]	= null; 
+
+
+						
 ?>
 
 <?php include 'header.php';?>
@@ -271,8 +273,7 @@ $tableD_arr[]	= null;
 		<input type="file" 	   id="my_file" value = ""onchange = "upload()" style="display: none;" />
 </div>		
 
-<!----------------------------------- Title div Ends	  ---------------------------------->
-
+<!--------------------------- Title div Ends	  ---------------------------------->
 
 <div class="container">
 <div class="row">
@@ -295,7 +296,12 @@ $tableD_arr[]	= null;
 					{
 						$tableA_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 							
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$tableA_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 					
 				?>
@@ -313,11 +319,28 @@ $tableD_arr[]	= null;
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$tableA_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								
+								// echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+								echo "<td><textarea rows = '5' cols = '30' name=".$key1."[".$result['ODESSO_APP_ID']."] >".$value."</textarea></td>";
+							}	
 						}
 					}
 				echo"</tr>";
@@ -327,8 +350,6 @@ $tableD_arr[]	= null;
 	</table>
 	</form>
 </div> 
-
-
 <div class="table-responsive ">
 	<h3>Table 2: Update App Colors</h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>Next, let's update the colors and look and feel of your app. In this section we'll be using Hexadecimal codes. These are 6-digit strings which will represent colors in your app. Here's a handy tool to allow you to look up colors inside of your app: <a href="https://color.adobe.com/" target="_blank">https://color.adobe.com/</a><ol>
@@ -346,12 +367,17 @@ $tableD_arr[]	= null;
 			<tr style="border: 1px solid black;">
 				<?php
 						echo "<th>Edit</th>";
-						
+					
 					foreach($tableB_heading as $value)
 					{
 						$tableB_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 							
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$tableB_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 					
 				?>
@@ -363,17 +389,35 @@ $tableD_arr[]	= null;
 			
 			foreach($tableB as $key=>$result)
 			{
-				echo "<tr>";
+					echo '<tr>';
 					echo "<td><button type='submit' name='editB'>Update</button></td>";
 					foreach ($result as $key1=>$value)
 					{
+						
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$tableBS_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								
+							// echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+							echo "<td><textarea  name=".$key1."[".$result['ODESSO_APP_ID']."]>".$value."</textarea></td>";
+							}
 						}
 					}
 				echo"</tr>";
@@ -409,7 +453,12 @@ $tableD_arr[]	= null;
 					{
 						$tableC_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 							
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$tableC_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 					
 				?>
@@ -421,17 +470,35 @@ $tableD_arr[]	= null;
 			
 			foreach($tableC as $key=>$result)
 			{
+				
 				echo "<tr>";
 					echo "<td><button type='submit' name='editC'>Update</button></td>";
 					foreach ($result as $key1=>$value)
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$tableC_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								
+								// echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+								echo "<td><textarea rows = '5' cols = '30' name=".$key1."[".$result['ODESSO_APP_ID']."] >".$value."</textarea></td>";
+							}
 						}
 					}
 				echo"</tr>";
@@ -441,7 +508,6 @@ $tableD_arr[]	= null;
 	</table>
 	</form>
 </div> 
-
 <div class="table-responsive ">
 	<h3>Table 4: Login Screen Icons</h3><br>
 	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_1.png" alt="Step 1" align="right" width="200px" height="354px"><p>There are just 2 icons on this table.
@@ -459,7 +525,12 @@ $tableD_arr[]	= null;
 					{
 						$tableD_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 							
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$tableD_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 					
 				?>
@@ -477,11 +548,28 @@ $tableD_arr[]	= null;
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$tableD_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								
+								// echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_ID']."] value='".$value."' ></td>";
+								echo "<td><textarea rows = '5' cols = '30' name=".$key1."[".$result['ODESSO_APP_ID']."]>".$value."</textarea></td>";
+							}
 						}
 					}
 				echo"</tr>";
@@ -491,76 +579,26 @@ $tableD_arr[]	= null;
 	</table>
 	</form>
 </div> 
-
-<!-- End Table 0-->
-
-<!-- <div class="table-responsive ">
-	<h3 >Table 2: Turning Features On/Off </h3><br>
-	<img src="../../AppProd/OdessoPlatform/OdessoPlatform/Tutorial/step_4.png" alt="Step 4" align="right" width="200px" height="354px"><p>Each app needs custom rules, and this table is where we set many of the features that an app will have. Below is a large table which covers things from E-Commerce settings to Notification settings to Cancellation workflow settings. This table uses binary commands <b>0 and 1</b> for <b>OFF/ON</b>. For example, if you want to add coupons to the app, look up <i>COUPON_INCLUDED</i> and change from 0 to 1.<br><br>
-	For this demo, let's allow customers to upload images when they place an order. <ol>
-	<li>To do so, simply assign '1' to <i>IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED</i>.</li> <li>The column next to it lets you set the maximum number of images a customer can upload to an order. Let's set <i>MAX_IMAGE_NUMBER</i> to '5'.</li>
-	<li>Scroll back to the left and press "Update" to refresh the table.</li></ol><br>
-	There are many more features in this table, but we will get to them later.</p>
-
-	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
-	<table id = "table2" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
-		<thead>
-			<tr style="border: 1px solid black;">
-				<?php
-						echo "<th>Edit</th>";
-					foreach($table1_heading as $value)
-					{
-						$table2_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
-							
-						echo "<th>".$value."</th>";
-					}
-				?>
-			</tr>
-		</thead>
-	<tbody>
-		<?php
-			$table1= $user->table_ODESSO_APP_FEATURE ($odesso_app_id);
-			
-			foreach($table1 as $key=>$result)
-			{
-				echo "<tr>";
-					echo "<td><button type='submit' name='edit2'>Update</button></td>";
-					foreach ($result as $key1=>$value)
-					{
-						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_FEATURE_ID')
-						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_FEATURE_ID']."] value='".$value."' readonly  ></td>";
-						}
-						else
-						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_FEATURE_ID']."] value='".$value."' ></td>";
-						}
-					}
-				echo"</tr>";
-			}
-		?>
-	</tbody>
-	</table>
-	</form>
-</div>
- -->
-
-
 <div class="table-responsive">
 	<h3> Table 5: (Optional) Text Customization  </h3><br>
 	<p>	You may have also noticed we have templated words and sentences throughout the app. All of this is customizable, and can be changed by looking it up in the below table. The fastest way is to use the search function to find the String you wish to change, and edit the <b><i>BODY</i></b>. Make sure you don't touch the <i>APP_ID</i> or <i>TAG</i></b>. When you're done, press "Update" on each individual line.</p>
 
 	<form method="post" action="update_branding.php?id=<?php echo $odesso_app_id; ?>">
-	<table id = "table3" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
+	<table id = "table9" class="table table-profile myTable" style="border: 1px solid black; border-collapse: collapse;">
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
 						echo "<th>Edit</th>";
 					foreach($table9_heading as $value)
 					{
-						$table3_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						$table9_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 						
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table9_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -577,11 +615,28 @@ $tableD_arr[]	= null;
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_REF_STRING_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_REF_STRING_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_REF_STRING_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_REF_STRING_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table9_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_STORE_STORE_ITEM_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								
+							// echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_REF_STRING_ID']."] value='".$value."' ></td>";
+							echo "<td><textarea rows = '3' cols = '30' name=".$key1."[".$result['ODESSO_APP_REF_STRING_ID']."] >".$value."</textarea></td>";
+							}	
 						}
 					}
 				echo"</tr>";
@@ -591,7 +646,6 @@ $tableD_arr[]	= null;
 	</table>
 	</form>
 </div>
-
 
 
 </div>
@@ -613,25 +667,17 @@ $(document).ready(function() {
 	$('.ODESSO_APP_1').prop('required',true);
 	$('.ODESSO_APP_2').prop('required',true);
   
-  /*  $('.myTable').DataTable( {
-        // "scrollY": 200,
-        "scrollX": true
-    } ); */
-	
+ 
 	
 	/* Create an array with the values of all the input boxes in a column */
 		$.fn.dataTable.ext.order['dom-text'] = function  ( settings, col )
 		{
 			return this.api().column( col, {order:'index'} ).nodes().map( function ( td, i ) {
 				return $('input', td).val();
+				// return $('textarea', td).val();
 			} );
 		}
 
-		var table1_arr  	= <?php echo json_encode($table1_arr)?>;
-	
-		var table2_arr  	= <?php echo json_encode($table2_arr)?>;
-	
-		var table3_arr 		= <?php echo json_encode($table3_arr)?>;
 		var tableA_arr 		= <?php echo json_encode($tableA_arr)?>;
 		
 		var tableB_arr 		= <?php echo json_encode($tableB_arr)?>;
@@ -640,28 +686,8 @@ $(document).ready(function() {
 		
 		var tableD_arr 		= <?php echo json_encode($tableD_arr)?>;
 		
+		var table9_arr 		= <?php echo json_encode($table9_arr)?>;
 		
-		
-		
-		// console.log(table1_arr);
-		/* Initialise the table1 with the required column ordering data types */
-		$('#table1').DataTable( {
-			"scrollX": true,
-			"columns": table1_arr
-		} );
-
-		/* Initialise the table2 with the required column ordering data types */
-		$('#table2').DataTable( {
-			"scrollX": true,
-			"columns": table2_arr
-		} );
-
-		/* Initialise the table3 with the required column ordering data types */
-		$('#table3').DataTable( {
-				"scrollX": true,
-			"columns": table3_arr
-		} );
-	
 	/* Initialise the tableA with the required column ordering data types */
 		$('#tableA').DataTable( {
 				"scrollX": true,
@@ -669,7 +695,7 @@ $(document).ready(function() {
 		} );
 	
 	/* Initialise the tableB with the required column ordering data types */
-		$('#tableB').DataTable( {
+		$('#tableB').DataTable(  {
 				"scrollX": true,
 			"columns": tableB_arr
 		} );
@@ -684,6 +710,12 @@ $(document).ready(function() {
 		$('#tableD').DataTable( {
 				"scrollX": true,
 			"columns": tableD_arr
+		} );
+	
+	/* Initialise the tableD with the required column ordering data types */
+		$('#table9').DataTable( {
+				"scrollX": true,
+			"columns": table9_arr
 		} );
 	
 	
@@ -762,5 +794,17 @@ function upload(){
 	}
 			
 			
+}
+
+function coloumn_checkbox(that)
+{
+	if($(that).is(':checked'))
+	{
+		$(that).parent('td').find('input.coloumn_checkbox').val('1');
+	}
+	else
+	{
+		$(that).parent('td').find('input.coloumn_checkbox').val('0');
+	}
 }
 </script>

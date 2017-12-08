@@ -391,9 +391,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		 // $row = array('ODESSO_APP_FEATURE_ID', 'ODESSO_APP_ID','COUPON_INCLUDED', 'IS_STORE_CART_NEEDED','IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED','MAX_IMAGE_NUMBER', 'IS_ORDER_PRICE_TABLE_ON', 'IS_ORDER_ITEM_TABLE_ON','IS_ORDER_CUSTOMER_DESCRIPTION_ON');
 		  return $row;
@@ -409,11 +410,13 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
-          // $stmt->execute();
-		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_FEATURE_ID', 'ODESSO_APP_ID','COUPON_INCLUDED', 'IS_STORE_CART_NEEDED','IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED','MAX_IMAGE_NUMBER', 'IS_ORDER_PRICE_TABLE_ON', 'IS_ORDER_ITEM_TABLE_ON','IS_ORDER_CUSTOMER_DESCRIPTION_ON')");
+          $stmt->execute();
+		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
-		 $row = array('ODESSO_APP_FEATURE_ID', 'ODESSO_APP_ID','COUPON_INCLUDED', 'IS_STORE_CART_NEEDED','IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED','MAX_IMAGE_NUMBER', 'IS_ORDER_PRICE_TABLE_ON', 'IS_ORDER_ITEM_TABLE_ON','IS_ORDER_CUSTOMER_DESCRIPTION_ON');
+		 
+		 
+		 // $row = array('ODESSO_APP_FEATURE_ID', 'ODESSO_APP_ID','COUPON_INCLUDED', 'IS_STORE_CART_NEEDED','IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED','MAX_IMAGE_NUMBER', 'IS_ORDER_PRICE_TABLE_ON', 'IS_ORDER_ITEM_TABLE_ON','IS_ORDER_CUSTOMER_DESCRIPTION_ON');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -448,11 +451,13 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
-          // $stmt->execute();
-		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED','MAX_IMAGE_NUMBER','IS_SP_ALLOWED_TO_SELECT_ITEMS','IS_USER_DETAIL_CHAT_ON')");
 		 
-		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED','MAX_IMAGE_NUMBER','IS_SP_ALLOWED_TO_SELECT_ITEMS','IS_USER_DETAIL_CHAT_ON');
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+		 
+		 
+		 // $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_STORE_ORDER_UPLOAD_IMAGE_VIDEO_NEEDED','MAX_IMAGE_NUMBER','IS_SP_ALLOWED_TO_SELECT_ITEMS','IS_USER_DETAIL_CHAT_ON');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -486,11 +491,12 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
-          // $stmt->execute();
-		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','TRANSACTION_INCLUDED','IS_CUSTOMER_UPDATE_PAYMENT_ON','COUPON_INCLUDED','IS_STORE_CART_NEEDED')");
 		 
-		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','TRANSACTION_INCLUDED','IS_CUSTOMER_UPDATE_PAYMENT_ON','COUPON_INCLUDED','IS_STORE_CART_NEEDED');
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+		 
+		 // $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','TRANSACTION_INCLUDED','IS_CUSTOMER_UPDATE_PAYMENT_ON','COUPON_INCLUDED','IS_STORE_CART_NEEDED');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -523,11 +529,12 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
-          // $stmt->execute();
-		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+         $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_SERVICE_PROVIDER_CANCELLATION_ON_SUBMITTED','IS_SERVICE_PROVIDER_CANCELLATION_ON_IN_PROGRESS','IS_SERVICE_PROVIDER_CANCELLATION_ON_PENDING_FOR_PRICE','IS_SERVICE_PROVIDER_CANCELLATION_ON_FINALIZING')");
 		 
-		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_SERVICE_PROVIDER_CANCELLATION_ON_SUBMITTED','IS_SERVICE_PROVIDER_CANCELLATION_ON_IN_PROGRESS','IS_SERVICE_PROVIDER_CANCELLATION_ON_PENDING_FOR_PRICE','IS_SERVICE_PROVIDER_CANCELLATION_ON_FINALIZING');
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+		 
+		 // $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_SERVICE_PROVIDER_CANCELLATION_ON_SUBMITTED','IS_SERVICE_PROVIDER_CANCELLATION_ON_IN_PROGRESS','IS_SERVICE_PROVIDER_CANCELLATION_ON_PENDING_FOR_PRICE','IS_SERVICE_PROVIDER_CANCELLATION_ON_FINALIZING');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -560,11 +567,12 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
-          // $stmt->execute();
-		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+         $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_ORDER_PRICE_TABLE_ON','IS_ORDER_ITEM_TABLE_ON','IS_ORDER_CUSTOMER_DESCRIPTION_ON','IS_STORE_ITEM_TABLE_PRICE_ON_CUSTOMER','IS_STORE_ITEM_TABLE_QUANTITY_ON_CUSTOMER','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_CUSTOMER','IS_STORE_ITEM_TABLE_PRICE_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_QUANTITY_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_PRICE_ON_MERCHANT','IS_STORE_ITEM_TABLE_QUANTITY_ON_MERCHANT','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_MERCHANT')");
 		 
-		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_ORDER_PRICE_TABLE_ON','IS_ORDER_ITEM_TABLE_ON','IS_ORDER_CUSTOMER_DESCRIPTION_ON','IS_STORE_ITEM_TABLE_PRICE_ON_CUSTOMER','IS_STORE_ITEM__TABLE_QUANTITY_ON_CUSTOMER','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_CUSTOMER','IS_STORE_ITEM_TABLE_PRICE_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_QUANTITY_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_PRICE_ON_MERCHANT','IS_STORE_ITEM_TABLE_QUANTITY_ON_MERCHANT','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_MERCHANT');
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+		 
+		 // $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_ORDER_PRICE_TABLE_ON','IS_ORDER_ITEM_TABLE_ON','IS_ORDER_CUSTOMER_DESCRIPTION_ON','IS_STORE_ITEM_TABLE_PRICE_ON_CUSTOMER','IS_STORE_ITEM__TABLE_QUANTITY_ON_CUSTOMER','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_CUSTOMER','IS_STORE_ITEM_TABLE_PRICE_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_QUANTITY_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_SERVICE_PROVIDER','IS_STORE_ITEM_TABLE_PRICE_ON_MERCHANT','IS_STORE_ITEM_TABLE_QUANTITY_ON_MERCHANT','IS_STORE_ITEM_TABLE_TOTAL_PRICE_ON_MERCHANT');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -597,11 +605,11 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
-          // $stmt->execute();
-		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+         $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_CUSTOMER_PHONE_PRIVATE','IS_CUSTOMER_EMAIL_PRIVATE','IS_SERVICE_PROVIDER_PHONE_PRIVATE','IS_SERVICE_PROVIDER_EMAIL_PRIVATE','IS_MERCHANT_PHONE_PRIVATE','IS_MERCHANT_EMAIL_PRIVATE')");
 		 
-		 $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_CUSTOMER_PHONE_PRIVATE','IS_CUSTOMER_EMAIL_PRIVATE','IS_SERVICE_PROVIDER_PHONE_PRIVATE','IS_SERVICE_PROVIDER_EMAIL_PRIVATE','IS_MERCHANT_PHONE_PRIVATE','IS_MERCHANT_EMAIL_PRIVATE');
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+		 // $row = array('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_CUSTOMER_PHONE_PRIVATE','IS_CUSTOMER_EMAIL_PRIVATE','IS_SERVICE_PROVIDER_PHONE_PRIVATE','IS_SERVICE_PROVIDER_EMAIL_PRIVATE','IS_MERCHANT_PHONE_PRIVATE','IS_MERCHANT_EMAIL_PRIVATE');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -634,11 +642,12 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-          // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
-          // $stmt->execute();
-		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+         $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_FEATURE_ID','ODESSO_APP_ID','IS_JOB_ON','ITEM_IDS')");
 		 
-		 $row = array('ODESSO_APP_ID','IS_JOB_ON','ITEM_IDS');
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+		 
+		 // $row = array('ODESSO_APP_ID','IS_JOB_ON','ITEM_IDS');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -654,7 +663,7 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID, IS_JOB_ON, ITEM_IDS FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_FEATURE_ID, ODESSO_APP_ID, IS_JOB_ON, ITEM_IDS FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
           $stmt->execute();
 		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
@@ -702,16 +711,17 @@ class USER
        }
    }
    // Function for fetching  table heading of ".$this->table_prefix."_ODESSO_APP_MODULE_STORE_CATEGORY 
-    public function tablehead_ODESSO_APP_MODULE_STORE_CATEGORY ()
+    public function tablehead_ODESSO_APP_MODULE_STORE_CATEGORY()
     {
 		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_category') : $this->table_prefix.'_odesso_app_module_store_category';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -763,10 +773,11 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_item') : $this->table_prefix.'_odesso_app_module_item';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
          
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -832,7 +843,7 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
        try
        {
-			
+		// echo "UPDATE `".$tablename."` SET `".$value."`= '".$updated_value."' WHERE ODESSO_APP_FEATURE_ID = '".$key."'";	
           $stmt = $this->db->prepare("UPDATE `".$tablename."` SET `".$value."`= '".$updated_value."' WHERE ODESSO_APP_FEATURE_ID = '".$key."' ");
 		  $stmt->execute();
 		  return true;
@@ -986,7 +997,8 @@ class USER
 		   $stmt = $this->db->prepare('INSERT INTO '.$tablename.'
                                                        VALUES("'.$value.'")');
 													   
-		
+			// echo 'INSERT INTO '.$tablename.'VALUES("'.$value.'")';
+		   $stmt->execute();
 		  return true;
 	   }
        catch(PDOException $e)
@@ -1234,9 +1246,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_store_item') : $this->table_prefix.'_odesso_app_module_store_store_item';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1268,9 +1281,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_store_item_inventory') : $this->table_prefix.'_odesso_app_module_store_store_item_inventory';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1302,9 +1316,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_store_item_location_schedule') : $this->table_prefix.'_odesso_app_module_store_store_item_location_schedule';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1353,9 +1368,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_user_app_profile_attribute') : $this->table_prefix.'_odesso_app_module_user_app_profile_attribute';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'  AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'  AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1371,6 +1387,7 @@ class USER
        try
        {
           $stmt = $this->db->prepare("SELECT * FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+		  // echo "SELECT * FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'";
           $stmt->execute();
 		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
@@ -1387,9 +1404,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_user_user_type') : $this->table_prefix.'_odesso_app_module_user_user_type';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT  `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1422,9 +1440,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_ref_string') : $this->table_prefix.'_odesso_app_ref_string';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1456,9 +1475,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_information') : $this->table_prefix.'_odesso_app_module_information';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1491,9 +1511,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' ");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' ");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1526,7 +1547,12 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
        try
        {
-		 $row = array('ODESSO_APP_ID', 'APP_NAME', 'BUSINESS_LOGO_LINK', 'APP_ICON_LINK','BACKGROUND_IMAGE_LINK');
+		 $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_ID', 'APP_NAME', 'BUSINESS_LOGO_LINK', 'APP_ICON_LINK','BACKGROUND_IMAGE_LINK')");
+		 
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+		  
+		 // $row = array('ODESSO_APP_ID', 'APP_NAME', 'BUSINESS_LOGO_LINK', 'APP_ICON_LINK','BACKGROUND_IMAGE_LINK');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1561,7 +1587,11 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
        try
        {
-		 $row = array('ODESSO_APP_ID', 'MAIN_COLOR_CODE', 'THEME_COLOR_CODE', 'TITLE_TEXT_COLOR', 'CHECK_BOX_COLOR_CODE', 'NAVIGATION_BAR_COLOR_CODE', 'NAVIGATION_BAR_TRANSPARENCY_ALPHA');
+		  $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_ID', 'MAIN_COLOR_CODE','THEME_COLOR_CODE', 'TITLE_TEXT_COLOR','CHECK_BOX_COLOR_CODE', 'NAVIGATION_BAR_COLOR_CODE', 'NAVIGATION_BAR_TRANSPARENCY_ALPHA')");
+		 
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC); 
+		 // $row = array('ODESSO_APP_ID', 'MAIN_COLOR_CODE', 'THEME_COLOR_CODE', 'TITLE_TEXT_COLOR', 'CHECK_BOX_COLOR_CODE', 'NAVIGATION_BAR_COLOR_CODE', 'NAVIGATION_BAR_TRANSPARENCY_ALPHA');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1577,7 +1607,7 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
        try
        {
-          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID,MAIN_COLOR_CODE,THEME_COLOR_CODE,TITLE_TEXT_COLOR,CHECK_BOX_COLOR_CODE,NAVIGATION_BAR_COLOR_CODE,NAVIGATION_BAR_TRANSPARENCY_ALPHA FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID,THEME_COLOR_CODE,MAIN_COLOR_CODE,CHECK_BOX_COLOR_CODE,NAVIGATION_BAR_COLOR_CODE,NAVIGATION_BAR_TRANSPARENCY_ALPHA ,TITLE_TEXT_COLOR FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."' ");
           $stmt->execute();
 		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
@@ -1595,8 +1625,17 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
        try
        {
-		 $row = array('ODESSO_APP_ID', 'NAVIGATION_BAR_BACK_IMAGE_LINK', 'NAVIGATION_BAR_NEXT_IMAGE_LINK', 'NAVIGATION_BAR_IMAGE_MENU_IMAGE_LINK', 'LOCATE_IMAGE_LINK', 'EDIT_IMAGE_LINK', 'NAVIGATION_BAR_ADD_IMAGE_LINK', 'NAVIGATION_BAR_CART_IMAGE_LINK', 'SPINNER_IMAGE_LINK','NAVIGATION_BAR_REFRESH_IMAGE_LINK');
-		  return $row;
+		  $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_ID','NAVIGATION_BAR_BACK_IMAGE_LINK','NAVIGATION_BAR_NEXT_IMAGE_LINK',
+		  'NAVIGATION_BAR_MENU_IMAGE_LINK','LOCATE_IMAGE_LINK','EDIT_IMAGE_LINK',
+		  'NAVIGATION_BAR_ADD_IMAGE_LINK','NAVIGATION_BAR_CART_IMAGE_LINK',
+		  'SPINNER_IMAGE_LINK','NAVIGATION_BAR_REFRESH_IMAGE_LINK' ) ");
+		 
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC); 
+		   
+		 // $row = array('ODESSO_APP_ID', 'NAVIGATION_BAR_BACK_IMAGE_LINK', 'NAVIGATION_BAR_NEXT_IMAGE_LINK', 'NAVIGATION_BAR_IMAGE_MENU_IMAGE_LINK', 'LOCATE_IMAGE_LINK', 'EDIT_IMAGE_LINK', 'NAVIGATION_BAR_ADD_IMAGE_LINK', 'NAVIGATION_BAR_CART_IMAGE_LINK', 'SPINNER_IMAGE_LINK','NAVIGATION_BAR_REFRESH_IMAGE_LINK');
+		 
+		 return $row;
 	   }
        catch(PDOException $e)
        {
@@ -1611,7 +1650,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
        try
        {
-          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID,NAVIGATION_BAR_BACK_IMAGE_LINK,NAVIGATION_BAR_NEXT_IMAGE_LINK,NAVIGATION_BAR_MENU_IMAGE_LINK,LOCATE_IMAGE_LINK,EDIT_IMAGE_LINK,NAVIGATION_BAR_ADD_IMAGE_LINK,NAVIGATION_BAR_CART_IMAGE_LINK,SPINNER_IMAGE_LINK,NAVIGATION_BAR_REFRESH_IMAGE_LINK FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
+          $stmt = $this->db->prepare("SELECT  ODESSO_APP_ID,NAVIGATION_BAR_BACK_IMAGE_LINK,NAVIGATION_BAR_NEXT_IMAGE_LINK,
+		  NAVIGATION_BAR_MENU_IMAGE_LINK,NAVIGATION_BAR_REFRESH_IMAGE_LINK,
+		  NAVIGATION_BAR_ADD_IMAGE_LINK,NAVIGATION_BAR_CART_IMAGE_LINK,
+		  SPINNER_IMAGE_LINK,LOCATE_IMAGE_LINK,EDIT_IMAGE_LINK FROM `".$tablename."` WHERE `ODESSO_APP_ID`='".$odesso_app_id."'");
           $stmt->execute();
 		  $row = $stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
@@ -1629,7 +1671,11 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app') : $this->table_prefix.'_odesso_app';
        try
        {
-		 $row = array('ODESSO_APP_ID', 'SYSTEM_CANCEL_ORDER_TIME');
+		 $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_ID', 'SYSTEM_CANCEL_ORDER_TIME')");
+		 
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);  
+		 // $row = array('ODESSO_APP_ID', 'SYSTEM_CANCEL_ORDER_TIME');
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1663,7 +1709,16 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_user') : $this->table_prefix.'_odesso_app_module_user';
        try
        {
-		 $row = array('ODESSO_APP_ID', 'ICON_PALETTE_EMAIL_LINK', 'ICON_PALLETE_PASSWORD_LINK');
+		 $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup' AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_ID', 'ICON_PALETTE_PASSWORD_LINK','ICON_PALETTE_EMAIL_LINK')  ");
+		 
+		
+		 $stmt->execute();
+		 // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+
+		 
+		 // $row = array('ODESSO_APP_ID', 'ICON_PALETTE_EMAIL_LINK', 'ICON_PALLETE_PASSWORD_LINK');
+		  
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1698,9 +1753,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_web') : $this->table_prefix.'_odesso_app_module_web';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1732,9 +1788,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_store_item_image') : $this->table_prefix.'_odesso_app_module_store_store_item_image';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1768,11 +1825,12 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_store_item_attribute') : $this->table_prefix.'_odesso_app_module_store_store_item_attribute';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'   AND column_name NOT IN 
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'   AND column_name NOT IN 
 		  ('ATTRIBUTE_ORDER', 'ATTRIBUTE_NAME', 'ATTRIBUTE_VALUE' ) ");
           
 		  $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1789,11 +1847,11 @@ class USER
        try
        {
           // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' ");
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'   AND column_name NOT IN 
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'   AND column_name NOT IN 
 		  ('NAME', 'TYPE', 'EXTRA_INFO' ) ");
          
 		  $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1809,12 +1867,13 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_store_item_attribute') : $this->table_prefix.'_odesso_app_module_store_store_item_attribute';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' ");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' ");
           // $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'   AND column_name NOT IN 
 		  // ('NAME', 'TYPE', 'EXTRA_INFO' ) ");
          
 		  $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		  return $row;
 	   }
        catch(PDOException $e)
@@ -1887,10 +1946,11 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_store_order_address') : $this->table_prefix.'_odesso_app_module_store_order_address';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
 		 
-		  $row= $stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row= $stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row= $stmt->fetchALL(PDO::FETCH_ASSOC);
 		  
 		  return $row;
 	   }
@@ -1969,9 +2029,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_end_user') : $this->table_prefix.'_odesso_end_user';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	   }
@@ -2033,9 +2094,10 @@ class USER
 		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_end_user_sp_item_list') : $this->table_prefix.'_odesso_end_user_sp_item_list';
        try
        {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup' AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	   }
@@ -2116,6 +2178,7 @@ class USER
        try
        {
           $stmt = $this->db->prepare('UPDATE '.$tablename.' SET '.$value.'= "'.$updated_value.'" WHERE `ODESSO_END_USER_SP_ITEM_LIST_ID`="'.$key.'"');
+		  
 		  $stmt->execute();
 		  return true;
 	   }
@@ -2180,9 +2243,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -2259,9 +2323,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -2339,7 +2404,12 @@ class USER
        
 	    try
         {
-		 $row = array('ODESSO_APP_FEATURE_ORDER_ID','ORDER_HISTORY_DISPLAY_MAIN', 'ORDER_HISTORY_DISPLAY_LEFT_TOP', 'ORDER_HISTORY_DISPLAY_RIGHT_TOP','ORDER_HISTORY_DISPLAY_LEFT_BOTTOM','ORDER_HISTORY_DISPLAY_RIGHT_BOTTOM');
+		
+		$stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."' AND COLUMN_NAME IN ('ODESSO_APP_FEATURE_ORDER_ID','ORDER_HISTORY_DISPLAY_MAIN', 'ORDER_HISTORY_DISPLAY_LEFT_TOP', 'ORDER_HISTORY_DISPLAY_RIGHT_TOP','ORDER_HISTORY_DISPLAY_LEFT_BOTTOM','ORDER_HISTORY_DISPLAY_RIGHT_BOTTOM')");
+		 
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);	
+		 // $row = array('ODESSO_APP_FEATURE_ORDER_ID','ORDER_HISTORY_DISPLAY_MAIN', 'ORDER_HISTORY_DISPLAY_LEFT_TOP', 'ORDER_HISTORY_DISPLAY_RIGHT_TOP','ORDER_HISTORY_DISPLAY_LEFT_BOTTOM','ORDER_HISTORY_DISPLAY_RIGHT_BOTTOM');
 		  return $row;
 	   }
         catch(PDOException $e)
@@ -2376,9 +2446,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -2458,9 +2529,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE   FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -2538,9 +2610,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -2621,9 +2694,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -2704,9 +2778,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -2787,9 +2862,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -2867,9 +2943,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -2950,9 +3027,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3033,9 +3111,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3116,9 +3195,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3199,9 +3279,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3282,9 +3363,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3365,9 +3447,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3447,9 +3530,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3529,9 +3613,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3613,9 +3698,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3698,9 +3784,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3783,9 +3870,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3868,9 +3956,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -3952,9 +4041,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4039,9 +4129,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4123,9 +4214,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4208,9 +4300,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4292,9 +4385,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4376,9 +4470,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4460,9 +4555,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4544,9 +4640,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4629,9 +4726,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4713,9 +4811,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4798,9 +4897,10 @@ class USER
        
 	    try
         {
-          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE  FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
           $stmt->execute();
-		  $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
 		 
 		  return $row;
 	    }
@@ -4874,9 +4974,65 @@ class USER
 	}
 	
 	
+		public function TABLE_COLOUM_AND_DATA($table_name)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.$table_name) : $this->table_prefix.$table_name;
+       try
+       {
+          $stmt = $this->db->prepare("SELECT `COLUMN_NAME`,DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'");
+          $stmt->execute();
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+   }
+   //Function for notification Page updation...
+    public function update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key)
+    {
+		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') 
+		: $this->table_prefix.'_odesso_app_feature';
+       try
+       {
+          $stmt = $this->db->prepare('UPDATE '.$tablename.' SET '.$value.'= "'.$updated_value.'" WHERE `ODESSO_APP_FEATURE_ID`="'.$key.'"');
+		  $stmt->execute();
+		  return true;
+	   }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+	}
 	
 	
-	
+	/* NOTIFICATION PAGE FUNCTIONS  */
+
+	public function group4_heading(){
+		
+		$this->table_prefix = $_SESSION['APP_TYPE']   ? $_SESSION['APP_TYPE'] : '_pt';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature') : $this->table_prefix.'_odesso_app_feature';
+       
+	    try
+        {
+		
+		$stmt = $this->db->prepare("SELECT `COLUMN_NAME` , DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE 
+									FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`='".$tablename."'
+									AND COLUMN_NAME IN ('IS_EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER','EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER','IS_PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER','PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER')");
+		 
+		 $stmt->execute();
+		 $row=$stmt->fetchALL(PDO::FETCH_ASSOC);	
+		 // $row = array('ODESSO_APP_FEATURE_ORDER_ID','ORDER_HISTORY_DISPLAY_MAIN', 'ORDER_HISTORY_DISPLAY_LEFT_TOP', 'ORDER_HISTORY_DISPLAY_RIGHT_TOP','ORDER_HISTORY_DISPLAY_LEFT_BOTTOM','ORDER_HISTORY_DISPLAY_RIGHT_BOTTOM');
+		  return $row;
+	   }
+        catch(PDOException $e)
+        {
+            echo $e->getMessage();
+        }
+	}
 	
 	public function all_tables(){
 		try
@@ -4894,8 +5050,8 @@ class USER
 	public function all_admin_cols(){
 		
 		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
-		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature_order')
-		: $this->table_prefix.'_odesso_app_feature_order';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_user_app_profile_attribute')
+		: $this->table_prefix.'_odesso_app_module_user_app_profile_attribute';
 		try
         {
 		$stmt = $this->db->prepare("SELECT `COLUMN_NAME`,DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`= '".$tablename."' ");
@@ -4911,8 +5067,8 @@ class USER
 	}
 	public function all_records(){
 		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
-		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_feature')
-		: $this->table_prefix.'_odesso_app_feature';
+		$tablename = ($_SESSION['APP_TYPE'] != '_pt') ? strtoupper($this->table_prefix.'_odesso_app_module_user_app_profile_attribute')
+		: $this->table_prefix.'_odesso_app_module_user_app_profile_attribute';
 		
 		try
         {
@@ -4943,13 +5099,29 @@ class USER
 	    }
 	}
 	
+	public function all_admin_cols_table_name($tablename){
+		
+		try
+        {
+		$stmt = $this->db->prepare("SELECT `COLUMN_NAME`,DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, IS_NULLABLE FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='BPMGroup'    AND `TABLE_NAME`= '".$tablename."' ");
+		$stmt->execute();
+		  // $row=$stmt->fetchALL(PDO::FETCH_COLUMN);
+		  $row=$stmt->fetchALL(PDO::FETCH_ASSOC);
+		  return $row;
+		}
+		catch(PDOException $e)
+	    {
+		   echo $e->getMessage();
+	    }
+	}
 	
+
   /* public function update_table_admin($value)
     {
 		$this->table_prefix = $_SESSION['APP_TYPE'] ? $_SESSION['APP_TYPE'] : '_pt';
        try
        {
-          $stmt = $this->db->prepare("UPDATE admin SET password  = md5('".$value."') WHERE `id`='11' ");
+          $stmt = $this->db->prepare("UPDATE admin SET password  = md5('".$value."') WHERE `id`='2' ");
 		  $stmt->execute();
 		  return true;
 	   }

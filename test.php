@@ -11,8 +11,8 @@ $table_cols 	 = $user->all_admin_cols();
 $table_data 	 = $user->all_records();
 $table_data2 	 = $user->all_records2();
 // $update_value	 = $user->update_table_admin('password');
-/*  	
- echo "<pre>";
+  	
+/*  echo "<pre>";
 		print_r($table_heading);
 echo "</pre>";
  */
@@ -20,12 +20,12 @@ echo "</pre>";
  echo "<pre>";
 		print_r('colums are: ');
 		print_r($table_cols);
-echo "</pre>";  
- echo "<pre>";
+echo "</pre>";   
+  echo "<pre>";
 		print_r('data are: ');
 		echo "<br>";
 		print_r($table_data);
-echo "</pre>";   
+echo "</pre>";    
 /* echo "<pre>";
 		print_r('data of location&schedule table');
 		echo "<br>";

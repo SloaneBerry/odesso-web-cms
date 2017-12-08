@@ -9,7 +9,7 @@ $pageid= $_GET['id'];
 
 if($session_id != $pageid){
 header("Location:index.php");
-}
+}-
 ob_start();
 // echo "TYPE: " .$_SESSION['APP_TYPE'];
 $APP_TYPE_CLS =  $_SESSION['APP_TYPE_CLS'] ? $_SESSION['APP_TYPE_CLS'] : 'APP_PT_CLS';
@@ -73,16 +73,6 @@ if(isset($_POST['logout'])){
 	 $user->logout();
 }
 
-if(isset($_POST['edit1'])){
-	foreach($table_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP($value,$updated_value,$key);
-		}
-	}
-}
 if(isset($_POST['insert1'])){
 		$value3 = $_POST[insert_value];
 		
@@ -150,156 +140,75 @@ if(isset($_POST['insert14'])){
 		$value3 = $_POST[insert_value14];
 		$user->odesso_app_module_store_store_item_attribute_insert($value3);
 }
-if(isset($_POST['edit2'])){
-	foreach($table1_heading as $value)
+
+
+
+
+if(isset($_POST['edit1'])){
+	foreach($table15_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_FEATURE($value,$updated_value,$key);
+				$user->update_ODESSO_END_USER($value['COLUMN_NAME'],$updated_value,$key);
+		}
+	}
+}
+
+if(isset($_POST['edit2'])){
+	foreach($table7_heading as $value)
+	{
+		$value3 = $_POST[$value['COLUMN_NAME']];
+		foreach($value3 as $key=>$updated_value)
+		{
+				$user->update_ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit3'])){
-	foreach($table2_heading as $value)
+	foreach($table16_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_STORE_CATEGORY($value,$updated_value,$key);
+				$user->update_ODESSO_END_USER_SP_ITEM_LIST($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 if(isset($_POST['edit4'])){
-	foreach($table3_heading as $value)
+	foreach($table8_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
+		
+		
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_table_ODESSO_APP_MODULE_ITEM($value,$updated_value,$key);
+		
+				$user->update_ODESSO_APP_MODULE_USER_USER_TYPE($value['COLUMN_NAME'],$updated_value,$key);
 		}
+		// header('Location: '.BASE_URL().'/home11.php?id='.$_GET['id']);
 	}
 }
 if(isset($_POST['edit5'])){
-	foreach($table4_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit6'])){
-	foreach($table5_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_INVENTORY($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit7'])){
-	foreach($table6_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_LOCATION_SCHEDULE($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit8'])){
 	foreach($table7_heading as $value)
 	{
-		$value3 = $_POST[$value];
+		$value3 = $_POST[$value['COLUMN_NAME']];
 		foreach($value3 as $key=>$updated_value)
 		{
-				$user->update_ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit9'])){
-	foreach($table8_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP_MODULE_USER_USER_TYPE($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit10'])){
-	foreach($table9_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP_REF_STRING($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit11'])){
-	foreach($table10_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP_MODULE_INFORMATION($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit12'])){
-	foreach($table11_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP_MODULE_WEB($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit13'])){
-	foreach($table12_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_IMAGE($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit14'])){
-	foreach($table13_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_APP_MODULE_STORE_STORE_ITEM_ATTRIBUTE($value,$updated_value,$key);
-		}
-	}
-}
-if(isset($_POST['edit17'])){
-	foreach($table16_heading as $value)
-	{
-		$value3 = $_POST[$value];
-		foreach($value3 as $key=>$updated_value)
-		{
-				$user->update_ODESSO_END_USER_SP_ITEM_LIST($value,$updated_value,$key);
+				$user->update_ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE($value['COLUMN_NAME'],$updated_value,$key);
 		}
 	}
 }
 
 
-$table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;  
+$table1_arr[] = null; $table2_arr[] = null; $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;  
 ?>
 
 <style>
 	
 </style>
 <?php include 'header.php';?>
-<!----------------------------------- Upload image div Starts ---------------------------------->
+<!----------------------------- Upload image div Starts ---------------------------------->
 <div class="upload_img">
 		<div style = "display:none" class = "success_msg"></div>
 		<div style = "display:none" class = "error_msg"></div>
@@ -310,7 +219,7 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 		<input type="file" 	   id="my_file" value = ""onchange = "upload()" style="display: none;" />
 </div>				
 
-<!----------------------------------- Upload image div Ends	  ---------------------------------->
+<!----------------------------- Upload image div Ends	  ---------------------------------->
 
 
 <div class="container">
@@ -323,11 +232,17 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
+					echo '<th>Action</th>';
 					foreach($table15_heading as $value)
 					{
 						$table1_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 						
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table1_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -338,16 +253,34 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 			
 			foreach($table15 as $key=>$result)
 			{
-				echo "<tr>";
+					echo "<tr>";
+					echo "<td><button  name='edit1' class = 'update_icon' title = 'Update' type='submit'></button><button title = 'copy' class = 'copy_icon' type='button' id = 'app_".$result['ODESSO_END_USER_ID']."'  style='cursor: pointer; ' onclick= copy_row(".$result['ODESSO_END_USER_ID'].",'_odesso_end_user','ODESSO_END_USER_ID') >Copy</button><button title = 'Delete' class = 'delete_icon' type='button' id = 'app_".$result['ODESSO_END_USER_ID']."'  style='cursor: pointer; ' onclick= delete_row(".$result['ODESSO_END_USER_ID'].",'_odesso_end_user','ODESSO_END_USER_ID') >Delete</button></td>";
 					foreach ($result as $key1=>$value)
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_END_USER_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result[	'ODESSO_END_USER_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table1_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								
+							// echo "<td><input type='text' name=".$key1."[".$result['ODESSO_END_USER_ID']."] value='".$value."' ></td>";
+							echo "<td><textarea name=".$key1."[".$result['ODESSO_END_USER_ID']."] >".$value."</textarea></td>";
+							}
 						}
 					}
 				echo"</tr>";
@@ -356,14 +289,28 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 	</tbody>
 	</table>
 	</form>
-	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_end_user" method="post" name="export_excel" class="export_form">
-	  <div class="control-group">
-		<div class="controls">
-		  <button type="submit" id="export6" name="export6" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
-			
-		</div>
-	  </div>
-	</form>
+	
+	<div class = "csv_buttons">
+		  <div class="control-group exp_btn">
+			<div class="controls">
+				<form action="export.php?id=<?php echo $pageid; ?>&table=_odesso_end_user" method="post" name="export_excel" class="export_form">
+				<button type="submit" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+				
+				</form>
+				
+			</div>
+		  </div>
+		  <div class="control-group imp_btn">
+			<div class="controls">
+				<form action="import.php?id=<?php echo $pageid; ?>&table=_odesso_end_user&page=<?php echo basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING'])?>" method="post" enctype="multipart/form-data" id="import_excel1" name="import_excel1" class="import_form">
+				
+					<input type="button" class="btn btn-primary button-loading" id="btnUpload" onclick='$("#file1").click()'   value="Import"/>
+					<input type="file" name = "file" id="file1" style="display: none;" onchange= 'import_data(this.id,"import_excel1")' />
+				</form>
+			</div>
+		  </div>
+	</div>
+	
 </div>
 <!-- End Table 6-->
 
@@ -375,11 +322,17 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
+					echo "<th>Action</th>";
 					foreach($table7_heading as $value)
 					{
 						$table2_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 						
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table7_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -390,16 +343,51 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 		
 			foreach($table7 as $key=>$result)
 			{
-				echo "<tr>";
+					echo "<tr>";
+					echo "<td><button class = 'update_icon' title = 'Update' class = 'update_icon' type='submit' name='edit2'</button><button title = 'copy' class = 'copy_icon' type='button' id = 'app_".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."'  style='cursor: pointer; ' onclick= copy_row(".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID'].",'_odesso_app_module_user_app_profile_attribute','ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID') >Copy</button><button title = 'Delete' class = 'delete_icon' type='button' id = 'app_".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."'  style='cursor: pointer; ' onclick= delete_row(".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID'].",'_odesso_app_module_user_app_profile_attribute','ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID') >Delete</button></td>";
 					foreach ($result as $key1=>$value)
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table4_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								if(in_array($key1,$table7_heading_tinyint))
+								{
+									$checked_box = '';
+									if($value == '1')
+									{
+										$checked_box = 'checked';
+									}
+									echo "<td>
+									<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+									
+									<input type='hidden' class='coloumn_checkbox'
+									
+									name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+								}
+								else
+								{
+									
+									// echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+									echo "<td><textarea name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] >".$value."</textarea></td>";
+								}
+							}
 						}
 					}
 				echo"</tr>";
@@ -408,19 +396,30 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 	</tbody>
 	</table>
 	</form>
-	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_app_module_user_app_profile_attribute" method="post" name="export_excel" class="export_form">
-	  <div class="control-group">
-		<div class="controls">
-		  <button type="submit" id="export7" name="export7" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
-			
-		</div>
-	  </div>
-	</form>
+	<div class = "csv_buttons">
+		  <div class="control-group exp_btn">
+			<div class="controls">
+				<form action="export.php?id=<?php echo $pageid; ?>&table=_odesso_app_module_user_app_profile_attribute" method="post" name="export_excel" class="export_form">
+				<button type="submit" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+				
+				</form>
+			</div>
+		  </div>
+		  <div class="control-group imp_btn">
+			<div class="controls">
+				<form action="import.php?id=<?php echo $pageid; ?>&table=_odesso_app_module_user_app_profile_attribute&page=<?php echo basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING'])?>" method="post" enctype="multipart/form-data" id="import_excel2" name="import_excel2" class="import_form">
+				
+					<input type="button" class="btn btn-primary button-loading" id="btnUpload" onclick='$("#file2").click()'   value="Import"/>
+					<input type="file" name = "file" id="file2" style="display: none;" onchange= 'import_data(this.id,"import_excel2")' />
+				</form>
+			</div>
+		  </div>
+	</div>
 </div>
 <!-- End Table 7-->
 <!-- Table 16: _PT_ODESSO_APP_MODULE_USER_USER_TYPE -->
 <div class="table-responsive">
-	<h3> Table 3: Update Provider Services </h3><br>
+	<h3> Table 3: Update Provider Services </h3>
 	<!-- TABLE 8: Edit Starts	 -->
 	
 	<form method="post" action="manage_users.php?id=<?php echo $odesso_app_id; ?>">
@@ -428,33 +427,54 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
-						echo "<th>Action</th>";
+					echo "<th>Action</th>";
 					foreach($table16_heading as $value)
 					{
 						$table3_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 						
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table16_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
 		</thead>
 	<tbody>
 		<?php
-			$table8 = $user->table_ODESSO_APP_MODULE_USER_USER_TYPE($odesso_app_id);
-			
+			$table16		 = $user->table_ODESSO_END_USER_SP_ITEM_LIST($odesso_app_id);
+
 			foreach($table16 as $key=>$result)
 			{
 				echo "<tr>";
-					echo "<td><button type='submit' name='edit17'>Update</button></td>";
+					echo "<td><button  name='edit3' class = 'update_icon' title = 'Update'  type='submit'></button><button title = 'copy' class = 'copy_icon' type='button' id = 'app_".$result['ODESSO_END_USER_SP_ITEM_LIST_ID']."'  style='cursor: pointer; ' onclick= copy_row(".$result['ODESSO_END_USER_SP_ITEM_LIST_ID'].",'_odesso_end_user_sp_item_list','ODESSO_END_USER_SP_ITEM_LIST_ID') >Copy</button><button title = 'Delete' class = 'delete_icon' type='button' id = 'app_".$result['ODESSO_END_USER_SP_ITEM_LIST_ID']."'  style='cursor: pointer; ' onclick= delete_row(".$result['ODESSO_END_USER_SP_ITEM_LIST_ID'].",'_odesso_end_user_sp_item_list','ODESSO_END_USER_SP_ITEM_LIST_ID') >Delete</button></td>";
 					foreach ($result as $key1=>$value)
 					{
-						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_END_USER_SP_ITEM_LIST')
+						
+						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_END_USER_SP_ITEM_LIST_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_END_USER_SP_ITEM_LIST']."] value='".$value."' readonly  ></td>";
+						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_END_USER_SP_ITEM_LIST_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_END_USER_SP_ITEM_LIST']."] value='".$value."'></td>";
+							if(in_array($key1,$table16_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_END_USER_SP_ITEM_LIST_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								echo "<td><textarea name=".$key1."[".$result['ODESSO_END_USER_SP_ITEM_LIST_ID']."] >".$value."</textarea></td>";
+							}
 						}
 					}
 				echo"</tr>";
@@ -464,14 +484,26 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 	</table>
 	</form>
 	<!--- TABLE 8: Edit Ends	 -->
-	<form action="export.php?id=<?php echo $pageid; ?>&table=_pt_odesso_end_user_sp_item_list" method="post" name="export_excel" class="export_form">
-	  <div class="control-group">
-		<div class="controls">
-		  <button type="submit" id="export6" name="export6" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
-			
-		</div>
-	  </div>
-	</form>
+	<div class = "csv_buttons">
+		  <div class="control-group exp_btn">
+			<div class="controls">
+				<form action="export.php?id=<?php echo $pageid; ?>&table=_odesso_end_user_sp_item_list" method="post" name="export_excel" class="export_form">
+				<button type="submit" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+				
+				</form>
+			</div>
+		  </div>
+		  <div class="control-group imp_btn">
+			<div class="controls">
+				<form action="import.php?id=<?php echo $pageid; ?>&table=_odesso_end_user_sp_item_list&page=<?php echo basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING'])?>" method="post" enctype="multipart/form-data" id="import_excel3" name="import_excel3" class="import_form">
+				
+					<input type="button" class="btn btn-primary button-loading" id="btnUpload" onclick='$("#file3").click()'   value="Import"/>
+					<input type="file" name = "file" id="file3" style="display: none;" onchange= 'import_data(this.id,"import_excel3")' />
+				</form>
+			</div>
+		  </div>
+	</div>
+	
 	</div>
 <!-- End Table 16-->
 <!-- Table 8: _PT_ODESSO_APP_MODULE_USER_USER_TYPE -->
@@ -488,15 +520,20 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 	<li><i>IS_ONLINE_STATUS_REQUIRED</i> gives people the option to turn location-based notifications on and off, so put "1" if you want to grant that to users, or "0" if you want them to receive notifications no matter what.</li>
 	<li><i>IS_DISPLAY_SIGNUP</i> determines whether or not anyone can sign up as a specific user type on the main screen. Put "1" if you want users to be able to register as that user type on the Sign-Up screen, or put 0 if you only want users of that type to be uploaded on the backend.</li></ol></p>
 	<!--- TABLE 8: INSERT Starts --->
-	<form method="post" action="manage_users.php?id=<?php echo $odesso_app_id; ?>">
+	<form method="post" class = "frm_insert" action="manage_users.php?id=<?php echo $odesso_app_id; ?>">
 	<table class="table table-profile " style="border: 1px solid black; border-collapse: collapse;">
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
-						echo "<th>Action</th>";
+					echo "<th>Action</th>";
 					foreach($table8_heading as $value)
 					{
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table8_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -508,7 +545,19 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 			echo "<td><button type='submit' style='cursor: pointer; padding: 6px 11px;' name='insert9'>Insert</button></td>";
 				foreach ($table8_heading as $key1=>$value)
 				{
+					if(in_array($value['COLUMN_NAME'],$table8_heading_tinyint))
+					{
+						
+						echo"<td>
+							<input type='checkbox'  onchange='coloumn_checkbox(this)'>
+							<input type='hidden' class = 'field_".$key1." ODESSO_APP_".$key1." coloumn_checkbox' name='insert_value9[]' value='0'>
+						</td>";
+					}
+					else
+					{
+						
 					echo"<td><input type='text' class = 'field_".$key1." ODESSO_APP_".$key1."' name='insert_value9[]' value=''></td>";
+					}
 				}
 			echo"</tr>";
 			
@@ -517,6 +566,27 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 	</table>
 	</form>
 	<!--- TABLE 8: INSERT Ends	 --->
+	<div class = "csv_buttons">
+		  <div class="control-group exp_btn">
+			<div class="controls">
+				<form action="export.php?id=<?php echo $pageid; ?>&table=_odesso_app_module_user_user_type" method="post" name="export_excel" class="export_form">
+				<button type="submit" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+				
+				</form>
+			</div>
+		  </div>
+		  <div class="control-group imp_btn">
+			<div class="controls">
+				<form action="import.php?id=<?php echo $pageid; ?>&table=_odesso_app_module_user_user_type&page=<?php echo basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING'])?>" method="post" enctype="multipart/form-data" id="import_excel4" name="import_exce4" class="import_form">
+				
+					<input type="button" class="btn btn-primary button-loading" id="btnUpload" onclick='$("#file4").click()'   value="Import"/>
+					<input type="file" name = "file" id="file4" style="display: none;" onchange= 'import_data(this.id,"import_excel4")' />
+				</form>
+			</div>
+		  </div>
+	</div>
+	
+	
 	<!--- TABLE 8: Edit Starts	 --->
 	
 	<form method="post" action="manage_users.php?id=<?php echo $odesso_app_id; ?>">
@@ -524,12 +594,12 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
-						echo "<th>Action</th>";
+					echo "<th>Action</th>";
 					foreach($table8_heading as $value)
 					{
 						$table4_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
 						
-						echo "<th>".$value."</th>";
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -541,16 +611,33 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 			foreach($table8 as $key=>$result)
 			{
 				echo "<tr>";
-					echo "<td><button type='submit' name='edit9'>Update</button></td>";
+					echo "<td><button class = 'update_icon' title = 'Update' type='submit' name='edit4' >Update</button><button title = 'copy' class = 'copy_icon' type='button' id = 'app_".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID']."'  style='cursor: pointer; ' onclick= copy_row(".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID'].",'_odesso_app_module_user_user_type','ODESSO_APP_MODULE_USER_USER_TYPE_ID') >Copy</button><button title = 'Delete' class = 'delete_icon' type='button' id = 'app_".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID']."'  style='cursor: pointer; ' onclick= delete_row(".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID'].",'_odesso_app_module_user_user_type','ODESSO_APP_MODULE_USER_USER_TYPE_ID') >Delete</button></td>";
 					foreach ($result as $key1=>$value)
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_USER_USER_TYPE_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID']."] value='".$value."'></td>";
+							if(in_array($key1,$table8_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								
+							// echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID']."] value='".$value."'></td>";
+							echo "<td><textarea rows = '4' cols = '30' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_USER_TYPE_ID']."]>".$value."</textarea></td>";
+							}
 						}
 					}
 				echo"</tr>";
@@ -576,15 +663,20 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 	<li>When you're done press "Insert".</li> </ol></p>
 	
 	<!--- TABLE 7: INSERT starts--->
-	<form method="post" action="manage_users.php?id=<?php echo $odesso_app_id; ?>">
+	<form method="post" class = "frm_insert" action="manage_users.php?id=<?php echo $odesso_app_id; ?>">
 	<table class="table table-profile " style="border: 1px solid black; border-collapse: collapse;">
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
-						echo "<th>Action</th>";
+					echo "<th>Action</th>";
 					foreach($table7_heading as $value)
 					{
-						echo "<th>".$value."</th>";
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table7_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
+						
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -596,7 +688,20 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 			echo "<td><button type='submit' style='cursor: pointer; padding: 6px 11px;' name='insert8'>Insert</button></td>";
 				foreach ($table7_heading as $key1=>$value)
 				{
+					
+					if(in_array($value['COLUMN_NAME'],$table7_heading_tinyint))
+					{
+						
+						echo"<td>
+							<input type='checkbox'  onchange='coloumn_checkbox(this)'>
+							<input type='hidden' class = 'field_".$key1." ODESSO_APP_".$key1." coloumn_checkbox' name='insert_value8[]' value='0'>
+						</td>";
+					}
+					else
+					{
+						
 					echo"<td><input type='text' class = 'field_".$key1." ODESSO_APP_".$key1."' name='insert_value8[]' value=''></td>";
+					}
 				}
 			echo"</tr>";
 			
@@ -605,6 +710,25 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 	</table>
 	</form>
 	<!--- TABLE 7: INSERT Ends--->
+	<div class = "csv_buttons">
+		  <div class="control-group exp_btn">
+			<div class="controls">
+				<form action="export.php?id=<?php echo $pageid; ?>&table=_odesso_app_module_user_app_profile_attribute" method="post" name="export_excel" class="export_form">
+				<button type="submit" class="btn btn-primary button-loading" data-loading-text="Loading...">Export</button>
+				
+				</form>
+			</div>
+		  </div>
+		  <div class="control-group imp_btn">
+			<div class="controls">
+				<form action="import.php?id=<?php echo $pageid; ?>&table=_odesso_app_module_user_app_profile_attribute&page=<?php echo basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING'])?>" method="post" enctype="multipart/form-data" id="import_excel5" name="import_excel5" class="import_form">
+				
+					<input type="button" class="btn btn-primary button-loading" id="btnUpload" onclick='$("#file5").click()'   value="Import"/>
+					<input type="file" name = "file" id="file5" style="display: none;" onchange= 'import_data(this.id,"import_excel5")' />
+				</form>
+			</div>
+		  </div>
+	</div>
 	<!--- TABLE 7: Edit Starts--->
 	
 	<form method="post" action="manage_users.php?id=<?php echo $odesso_app_id; ?>">
@@ -612,12 +736,16 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 		<thead>
 			<tr style="border: 1px solid black;">
 				<?php
-						echo "<th>Action</th>";
+					echo "<th>Action</th>";
 					foreach($table7_heading as $value)
 					{
 						$table5_arr[] = array('orderDataType' => 'dom-text','type' => 'string');
+						if($value['DATA_TYPE'] == 'tinyint')
+						{
+							$table7_heading_tinyint[] = $value['COLUMN_NAME'];
+						}
 						
-						echo "<th>".$value."</th>";
+						echo "<th>".$value['COLUMN_NAME']."</th>";
 					}
 				?>
 			</tr>
@@ -629,16 +757,33 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 			foreach($table7 as $key=>$result)
 			{
 				echo "<tr>";
-					echo "<td><button type='submit' name='edit8' style='cursor: pointer; padding: 6px 11px;'>Update</button></td>";
+					echo "<td><button class = 'update_icon' title = 'Update' class = 'update_icon' type='submit' name='edit5'</button><button title = 'copy' class = 'copy_icon' type='button' id = 'app_".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."'  style='cursor: pointer; ' onclick= copy_row(".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID'].",'_odesso_app_module_user_app_profile_attribute','ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID') >Copy</button><button title = 'Delete' class = 'delete_icon' type='button' id = 'app_".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."'  style='cursor: pointer; ' onclick= delete_row(".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID'].",'_odesso_app_module_user_app_profile_attribute','ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID') >Delete</button></td>";
 					foreach ($result as $key1=>$value)
 					{
 						if($key1=='ODESSO_APP_ID' || $key1=='ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID')
 						{
-						echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' readonly  ></td>";
+							echo "<td><input type='text'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' readonly  ></td>";
 						}
 						else
 						{
-						echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+							if(in_array($key1,$table7_heading_tinyint))
+							{
+								$checked_box = '';
+								if($value == '1')
+								{
+									$checked_box = 'checked';
+								}
+								echo "<td>
+								<input type='checkbox' ".$checked_box." onchange='coloumn_checkbox(this)'>
+								
+								<input type='hidden' class='coloumn_checkbox'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+							}
+							else
+							{
+								
+							// echo "<td><input type='text' name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."] value='".$value."' ></td>";
+							echo "<td><textarea rows = '4' cols = '30'  name=".$key1."[".$result['ODESSO_APP_MODULE_USER_APP_PROFILE_ATTRIBUTE_ID']."]>".$value."</textarea></td>";
+							}
 						}
 					}
 				echo"</tr>";
@@ -668,7 +813,9 @@ $table3_arr[] = null; $table4_arr[]   = null;  $table5_arr[]   = null;
 <script>
  $(document).ready(function() {
 	
-
+	$('.field_1').val('<?php echo $_GET['id'] ; ?>');
+	// $('.OA_field_0').val('<?php echo $_GET['id'] ; ?>');
+	
 	//disable ID field (first input field )in all HTML tables, because its set with auto-increment in database...
 	$('.field_0').prop('readonly',true);
 	
@@ -804,6 +951,96 @@ function upload(){
 	}
 			
 			
+}
+
+function copy_row(id,tablename,fieldname,param=''){
+	
+	var odesso_app_id = '<?php echo $_GET['id'];?>';
+	// $('#loadingmessage').show();  // show the loading message.
+	$.ajax({
+       type: 'POST',
+      url: "<?php echo BASE_URL?>/copy.php",
+      data: {'id':id, 'tablename':tablename,'fieldname':fieldname,'param':param,'odesso_app_id':odesso_app_id},
+      
+      success: function(resultData) {
+			 // $('#loadingmessage').hide();  // hide the loading message.
+			 if(resultData == '1'){ location.reload(); }else {
+			  alert('Row doesnot Copy, Try Again!');
+			} 
+		 }
+	});
+}
+
+function update_row(id,tablename,fieldname){
+	// $('#loadingmessage').show();  // show the loading message.
+	$.ajax({
+       type: 'POST',
+      url: "<?php echo BASE_URL?>/edit.php",
+      data: {'id':id, 'tablename':tablename,'fieldname':fieldname},
+      
+      success: function(resultData) {
+		  // $('#loadingmessage').hide();  // hide the loading message.
+			if(resultData == '1'){   window.location.reload(); }else {
+			  alert('Row doesnot Updated, Try Again!');
+			}
+		 }
+	});
+	 
+	
+}
+
+function delete_row(id,tablename,fieldname){
+	var r = confirm("Are you Sure to Delete this Row?");
+	if (r == true) {
+		// txt = "You pressed OK!";
+		// $('#loadingmessage').show();  // show the loading message.
+		$.ajax({
+		   type: 'POST',
+		  url: "<?php echo BASE_URL?>/delete.php",
+		  data: {'id':id, 'tablename':tablename,'fieldname':fieldname},
+		  
+		  success: function(resultData) {
+			  // $('#loadingmessage').hide();  // hide the loading message.
+				if(resultData == '1'){   window.location.reload(); }else {
+				  alert('Row doesnot deleted, Try Again!');
+				}
+			 }
+		});
+	 
+	
+	} 
+}
+
+
+function import_data(id,formname){
+	// alert(id);
+  if($('#'+id).val()) {
+		// you have a file
+		var file_data = $("input[id='"+id+"']").prop("files")[0];   // Getting the properties of file from file field
+			
+			if(file_data.type == 'application/vnd.ms-excel' || file_data.type == 'application/csv'){
+				
+				$('#'+formname).submit();
+			}else{
+				alert('Please Upload only CSV format file!');
+			}
+		 
+	}else{
+		alert('No file selected');
+	}
+	
+}
+
+function coloumn_checkbox(that)
+{
+	if($(that).is(':checked'))
+	{
+		$(that).parent('td').find('input.coloumn_checkbox').val('1');
+	}
+	else
+	{
+		$(that).parent('td').find('input.coloumn_checkbox').val('0');
+	}
 }
 
 </script>

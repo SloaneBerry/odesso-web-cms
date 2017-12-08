@@ -5,8 +5,9 @@ session_start();
 
 $tablename 		= $_GET['table'];
 $param 			= $_GET['param'] ?  $_GET['param'] : '' ;
+$pageURL		= $_GET['page'];
 
-
+// die('stop');
 if(!empty($_FILES['file']['name']) ){
 	
 $extension =  pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
@@ -46,7 +47,7 @@ $extension =  pathinfo($_FILES['file']['name'], PATHINFO_EXTENSION);
 	} 
 			// die('stop to check!!!');
 			
-	header('Location: '. BASE_URL .'/home11.php?id='.$_GET['id'].'');
+	header('Location: '. BASE_URL .'/'.$pageURL.'?id='.$_GET['id'].'');
           		
 }else{
 	echo 'Error';

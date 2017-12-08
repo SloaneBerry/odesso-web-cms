@@ -1,3 +1,10 @@
+<html>
+<head>
+<title>
+	Odesso Content Management
+</title>
+<link href="css/style.css" rel="stylesheet" />
+<link href="css/datatable.css" rel="stylesheet" />
 <style>
 input[type="text"] {
     border: none;
@@ -50,14 +57,7 @@ $(window).load(function() {
     $(".loader").fadeOut("slow");
 });
 </script>
-<head>
-<title>
-	Odesso Content Management
-</title>
-<link href="css/style.css" rel="stylesheet" />
-<link href="css/datatable.css" rel="stylesheet" />
 </head>
-<html>
 <body>
 <?php 
 $APP_TYPE_CLS =  $_SESSION['APP_TYPE_CLS'] ? $_SESSION['APP_TYPE_CLS'] : 'APP_PT_CLS';
@@ -221,7 +221,6 @@ $(document).ready(function(){
 		$('.nav_features')	.addClass('bg_nav');
 		
 		$('.nav_home')	.removeClass('bg_nav');
-		$('.nav_features')	.removeClass('bg_nav');
 		$('.nav_report').removeClass('bg_nav');
 		$('.nav_users')	.removeClass('bg_nav');
 		$('.nav_item')  .removeClass('bg_nav');

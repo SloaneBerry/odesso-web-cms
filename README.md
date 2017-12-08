@@ -10,11 +10,11 @@ This is the beta build of odesso's web content management system. It gives App M
 
 # History
 
-0.15 - Updated text on first 5 tables of global_settings.php and added material design icon libraries to the simulators.php file.
+0.15 - Big update. Created notifications.php. Fixed alignment issues on global_settings.php. Added checkboxes in lieu of boolean operators. New resizable text windows. Cleaned up functions on all tables.
 
-0.14 - Updated text on Update Branding. -  https://github.com/SloaneBerry/odesso-web-cms/commit/44d8bbfe378fe0c4e7eddf57ce75fa22988fc30d
+0.14 - Updated text on Update Branding.
 
-0.13 - New page called "Global Settings" added to CMS. APP_FEATURE table split into 7 tables. Shipping Method, Order Attributes, Payment Info, etc added - https://github.com/SloaneBerry/odesso-web-cms/commit/c9ba7e67108d45c1620b7b2e513836c7558bb62e
+0.13 - New page called "Global Settings" added to CMS. APP_FEATURE table split into 7 tables. Shipping Method, Order Attributes, Payment Info, etc added - live
 
 0.12 - "Update Branding" split into 5 Tables: Images, Colors, UX (App table), UX (user table), Strings
 
@@ -24,6 +24,4 @@ This is the beta build of odesso's web content management system. It gives App M
 
 Development Schedule:
 
-0.16 - Update text on the bottom 5 tables of global_settings.php Updated images for update_branding.php and global_settings.php
-
-0.17 - New page called "Notifications" added to CMS. APP_FEATURE table split into 7 tables - PUSH vs EMAIL + CUSTOMER / SP / MERCHANT + SYSTEM CANCELLATION
+0.15 - New page called "Notifications" added to CMS. APP_FEATURE table split into 7 tables - PUSH vs EMAIL + CUSTOMER / SP / MERCHANT + SYSTEM CANCELLATION

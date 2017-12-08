@@ -1,0 +1,412 @@
+<?php 
+
+session_start(); 
+include_once 'config/dbconfig.php';
+$check = $_SESSION['login_username'];
+// if($check == ''){
+// header("Location:index.php");
+// }
+ob_start();
+
+$odesso_app_id = $_GET['id'];
+$table_heading		= $user->tablehead_ODESSO_APP_FEATURE();
+$table 		  		= $user->table_ODESSO_APP_FEATURE($odesso_app_id);
+
+
+$group1_heading		= array(
+					   'EMAIL_TO_CUSTOMER_SYSTEM_CANCEL' => 'EMAIL_TO_CUSTOMER_SYSTEM_CANCEL',
+					   'PUSH_TO_CUSTOMER_SYSTEM_CANCEL'  => 'PUSH_TO_CUSTOMER_SYSTEM_CANCEL'
+					);
+$group2_heading 	= array(
+					  'EMAIL_TO_MERCHANT_SYSTEM_CANCEL' => 'EMAIL_TO_MERCHANT_SYSTEM_CANCEL',
+					  'PUSH_TO_MERCHANT_SYSTEM_CANCEL'  => 'PUSH_TO_MERCHANT_SYSTEM_CANCEL'
+					);
+
+$group3_heading 	= array(
+					  'IS_EMAIL_TO_CUSTOMER_WHEN_CUSTOMER_SUBMIT_ORDER' => 'IS_EMAIL_TO_CUSTOMER_WHEN_CUSTOMER_SUBMIT_ORDER','EMAIL_TO_CUSTOMER_WHEN_CUSTOMER_SUBMIT_ORDER' => 'EMAIL_TO_CUSTOMER_WHEN_CUSTOMER_SUBMIT_ORDER'
+					);
+$group3_datatype 	= array(
+					  'IS_EMAIL_TO_CUSTOMER_WHEN_CUSTOMER_SUBMIT_ORDER' => 'tinyint','EMAIL_TO_CUSTOMER_WHEN_CUSTOMER_SUBMIT_ORDER' => 'varchar'
+					);
+
+$group4_heading 	= array(
+						'IS_EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER'=>'IS_EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER',
+						'IS_PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER' => 'IS_PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER',
+						'EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER' => 'EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER',
+						'PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER'=>
+						'PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER' 
+					);
+$group4_datatype 	= array(
+						'IS_EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER'=>'tinyint','EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER' => 'vachar','IS_PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER' => 'tinyint','PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_SUBMIT_ORDER'=>
+						'vachar' 
+					); 
+$group5_heading 	= array(
+						'IS_EMAIL_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER' => 'IS_EMAIL_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER', 
+						'IS_PUSH_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER' => 'IS_PUSH_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER', 
+						'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER' => 'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER',
+						'PUSH_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER' =>
+						'PUSH_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER'
+						);
+ $group5_datatype = array(
+						'IS_EMAIL_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER' => '1', 
+						'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER' => 'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER',
+						'IS_PUSH_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER' => '1',
+						'PUSH_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER' =>
+						'PUSH_TO_MERCHANT_WHEN_CUSTOMER_SUBMIT_ORDER'
+						);
+
+						
+$group6_heading 	= array(
+						'IS_EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' => 'IS_EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER',
+						'IS_PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' => 'IS_PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER',
+						'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' => 'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER',
+						'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>
+						'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER'
+					);
+
+$group6_datatype	= array(
+						'IS_EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' => '1', 'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' => 'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER',
+						'IS_PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' => '1',
+						'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>
+						'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER'
+					);
+
+
+$group7_heading 	= array(
+						'IS_EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>'IS_EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER', 
+						'IS_PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>'IS_PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER',
+						'EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>'EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER',
+						'PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>'PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER'
+					);
+
+$group7_datatype 	= array(
+						'IS_EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>'1', 'EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>'EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER', 'IS_PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>'1',
+						'PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER' =>'PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_ACCEPT_ORDER'
+					);
+
+$group8_heading 	= array(
+						'IS_EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER' => 'IS_EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER',
+						'IS_PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER' => 'IS_PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER',
+
+						'EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER' => 'EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER',
+						'PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER' =>'PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER'
+					);
+
+$group8_datatype 	= array(
+						'IS_EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER' => '1', 'EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER' => 'EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER',
+						'IS_PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER' => '1',
+						'PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER' =>'PUSH_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CONFIRM_ORDER'
+					);
+
+
+$group9_heading 	= array(
+						'IS_EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER' => 'IS_EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER',
+						'IS_PUSH_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER' =>'IS_PUSH_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER', 
+						'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER' =>'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER',
+						'PUSH_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER' =>'PUSH_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER'
+					);
+
+$group9_datatype	= array(
+						'IS_EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER' => '1',
+						'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER' =>'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER',
+						'IS_PUSH_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER' =>'1', 'PUSH_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER' =>'PUSH_TO_MERCHANT_WHEN_CUSTOMER_CONFIRM_ORDER'
+					);
+
+
+$group10_heading 	= array(
+						'IS_EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'IS_EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER',
+						'IS_PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'IS_PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER',
+
+						'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER', 
+						'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER'
+					);
+
+$group10_datatype	= array(
+						'IS_EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'1', 'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER', 'IS_PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'1', 'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER'
+					);
+
+
+$group11_heading 	= array(
+						'IS_EMAIL_TO_SERVICE_PROVIDE_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'IS_EMAIL_TO_SERVICE_PROVIDE_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER',
+						'EMAIL_TO_SERVICE_PROVIDE_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'EMAIL_TO_SERVICE_PROVIDE_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER'
+					);
+$group11_datatype 	= array(
+						'IS_EMAIL_TO_SERVICE_PROVIDE_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'1','EMAIL_TO_SERVICE_PROVIDE_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'EMAIL_TO_SERVICE_PROVIDE_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER'
+					);
+
+$group12_heading 	= array(
+						'IS_EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'IS_EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER', 'EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER', 'IS_PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'IS_PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER', 'PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER'
+					);
+
+$group12_datatype 	= array(
+						'IS_EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'1', 'EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'EMAIL_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER', 'IS_PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'1', 'PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER' =>'PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_COMPLETE_ORDER'
+					);
+
+
+$group13_heading 	= array(
+						'EMAIL_TO_CUSTOMER_WHEN_CUSTOMER_CANCEL_ORDER' =>'EMAIL_TO_CUSTOMER_WHEN_CUSTOMER_CANCEL_ORDER','EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CANCEL_ORDER' =>'EMAIL_TO_SERVICE_PROVIDER_WHEN_CUSTOMER_CANCEL_ORDER', 'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CANCEL_ORDER' =>'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CANCEL_ORDER'
+					);
+
+$group14_heading 	= array(
+						'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_CANCEL_ORDER' => 
+						'EMAIL_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_CANCEL_ORDER', 'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_CANCEL_ORDER' =>'PUSH_TO_CUSTOMER_WHEN_SERVICE_PROVIDER_CANCEL_ORDER'
+					);
+
+
+$group15_heading 	= array(
+						'EMAIL_TO_SERVICE_PROVIDER_WHEN_SERVICE_PROVIDER_CANCEL_ORDER' =>'EMAIL_TO_SERVICE_PROVIDER_WHEN_SERVICE_PROVIDER_CANCEL_ORDER',
+						'PUSH_TO_SERVICE_PROVIDER_WHEN_SERVICE_PROVIDER_CANCEL_ORDER' =>'PUSH_TO_SERVICE_PROVIDER_WHEN_SERVICE_PROVIDER_CANCEL_ORDER'
+					);
+
+$group16_heading 	= array(
+						'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CANCEL_ORDER' =>'EMAIL_TO_MERCHANT_WHEN_CUSTOMER_CANCEL_ORDER','PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_CANCEL_ORDER' =>'PUSH_TO_MERCHANT_WHEN_SERVICE_PROVIDER_CANCEL_ORDER'
+					);
+
+// update Functions...
+
+if(isset($_POST['edit1'])){
+	
+	
+	foreach($group1_heading as $value)
+	{
+		$value1 = $_POST[$value];
+	
+		foreach($value1 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit2'])){
+	
+	
+	foreach($group2_heading as $value)
+	{
+		$value2 = $_POST[$value];
+	
+		foreach($value2 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit3'])){
+	
+	
+	foreach($group3_heading as $value)
+	{
+		$value3 = $_POST[$value];
+	
+		foreach($value3 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+
+if(isset($_POST['edit4'])){
+	
+	
+	foreach($group4_heading as $value)
+	{
+		$value4 = $_POST[$value];
+	
+		foreach($value4 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit5'])){
+	
+	
+	foreach($group5_heading as $value)
+	{
+		$value5 = $_POST[$value];
+	
+		foreach($value5 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+
+if(isset($_POST['edit6'])){
+	
+	
+	foreach($group6_heading as $value)
+	{
+		$value6 = $_POST[$value];
+	
+		foreach($value6 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit7'])){
+	
+	
+	foreach($group7_heading as $value)
+	{
+		$value7 = $_POST[$value];
+	
+		foreach($value7 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit8'])){
+	
+	
+	foreach($group8_heading as $value)
+	{
+		$value8 = $_POST[$value];
+	
+		foreach($value8 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit9'])){
+	
+	
+	foreach($group9_heading as $value)
+	{
+		$value9 = $_POST[$value];
+	
+		foreach($value9 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit10'])){
+	
+	
+	foreach($group10_heading as $value)
+	{
+		$value10 = $_POST[$value];
+	
+		foreach($value10 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit11'])){
+	
+	
+	foreach($group11_heading as $value)
+	{
+		$value11 = $_POST[$value];
+	
+		foreach($value11 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit12'])){
+	
+	
+	foreach($group12_heading as $value)
+	{
+		$value12 = $_POST[$value];
+	
+		foreach($value12 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit13'])){
+	
+	
+	foreach($group13_heading as $value)
+	{
+		$value13 = $_POST[$value];
+	
+		foreach($value13 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit14'])){
+	
+	
+	foreach($group14_heading as $value)
+	{
+		$value14 = $_POST[$value];
+	
+		foreach($value14 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+
+if(isset($_POST['edit15'])){
+	
+	
+	foreach($group15_heading as $value)
+	{
+		$value15 = $_POST[$value];
+	
+		foreach($value15 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+if(isset($_POST['edit16'])){
+	
+	
+	foreach($group16_heading as $value)
+	{
+		$value16 = $_POST[$value];
+	
+		foreach($value16 as $key=>$updated_value)
+		{
+				
+				$user->update_ODESSO_APP_FEATURE_TABLE($value,$updated_value,$key);
+		}
+	}
+				
+}
+
+ header("Location:notifications.php?id=".$_GET['id']);
+?>
